@@ -2,17 +2,17 @@ namespace CookingDelight.Common;
 
 public enum FoodCategory
 {
-	Meat,		//Effect: 
-	Vegetable,	//Effect: Temporary max HP
+	Alcohol,    //Effect: -Defense. -speed, +damage OR funny shader effect / screenshake, +damage
+	Drink,      //Effect: Shorten duration, effect++
+	Fish,       //Effect: Attack speed
 	Fruit,		//Effect: Life regen
-	Sweet,		//Effect: Speed
-	Fish,		//Effect: Damage
-	Soup,		//Effect: 
-	Drink,		//Effect: 
-	Sandwich,	//Effect: 
-	Salad,		//Effect: 
-	Seafood,	//Effect: 
-	Alcohol,	//Effect: 
+	Meat,       //Effect: Damage
+	Salad,      //Effect: Add a random effect
+	Sandwich,	//Effect: effect+
+	Seafood,    //Effect: Water breathing / Extended breath
+	Soup,       //Effect: Lengthen the effect
+	Sweet,      //Effect: Speed
+	Vegetable,  //Effect: Temporary max HP
 	Other		//Custom effects
 }
 
