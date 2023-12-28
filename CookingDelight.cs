@@ -1,8 +1,6 @@
-using Terraria.ModLoader;
+namespace CookingDelight;
 
-namespace CookingDelight
+public class CookingDelight : Mod
 {
-	public class CookingDelight : Mod
-	{
-	}
+
 }
