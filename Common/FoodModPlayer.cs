@@ -2,6 +2,7 @@ namespace CookingDelight.Common;
 
 public class FoodModPlayer : ModPlayer
 {
+	// Immunity to vanilla food related buffs / debuffs
 	public override void PostUpdateMiscEffects() {
 		Player.buffImmune[BuffID.WellFed] = true;
 		Player.buffImmune[BuffID.WellFed2] = true;

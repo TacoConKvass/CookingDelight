@@ -15,7 +15,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Ale,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Alcohol },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -23,7 +24,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Apple,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Fruit },
-					BuffDuration = 20.Seconds()
+					BuffDuration = 20.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -31,7 +33,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.AppleJuice,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Sweet, FoodCategory.Fruit, FoodCategory.Drink },
-					BuffDuration = 20.Seconds()
+					BuffDuration = 20.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -39,7 +42,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.ApplePie,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Fruit, FoodCategory.Sweet },
-					BuffDuration = 20.Seconds()
+					BuffDuration = 20.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -47,7 +51,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Apricot,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Fruit },
-					BuffDuration = 20.Seconds()
+					BuffDuration = 20.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -55,7 +60,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Bacon,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Meat },
-					BuffDuration = 20.Seconds()
+					BuffDuration = 20.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -63,7 +69,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Banana,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Fruit },
-					BuffDuration = 20.Seconds()
+					BuffDuration = 20.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -71,7 +78,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.BananaDaiquiri,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Sweet, FoodCategory.Alcohol, FoodCategory.Drink },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -79,7 +87,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.BananaSplit,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Fruit, FoodCategory.Sweet },
-					BuffDuration = 20.Seconds()
+					BuffDuration = 20.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -87,7 +96,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.BBQRibs,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Meat },
-					BuffDuration = 20.Seconds()
+					BuffDuration = 20.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -95,7 +105,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.BlackCurrant,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Fruit },
-					BuffDuration = 20.Seconds()
+					BuffDuration = 20.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -103,7 +114,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.BloodOrange,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Fruit },
-					BuffDuration = 20.Seconds()
+					BuffDuration = 20.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -111,7 +123,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.BowlofSoup,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Fish, FoodCategory.Soup },
-					BuffDuration = 60.Seconds()
+					BuffDuration = 60.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -119,7 +132,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Burger,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Meat, FoodCategory.Sandwich },
-					BuffDuration = 20.Seconds()
+					BuffDuration = 20.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -127,7 +141,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.BunnyStew,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Meat, FoodCategory.Soup },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -135,7 +150,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Cherry,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Fruit },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -143,7 +159,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.ChickenNugget,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Meat },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -151,7 +168,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.ChocolateChipCookie,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Sweet },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -159,7 +177,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.ChristmasPudding,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Sweet },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -167,7 +186,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Coconut,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Sweet },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -175,7 +195,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.CoffeeCup,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Drink },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -183,7 +204,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.CookedFish,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Fish },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -191,7 +213,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.CookedMarshmallow,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Sweet },
-					BuffDuration = 15.Seconds()
+					BuffDuration = 15.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -199,7 +222,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.CookedShrimp,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Seafood },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -207,14 +231,16 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.CreamSoda,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Sweet, FoodCategory.Drink },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 			{
 				ItemID.Dragonfruit,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Fruit },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -222,7 +248,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Elderberry,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Fruit },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -230,7 +257,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Escargot,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Seafood },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -238,7 +266,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.FriedEgg,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Other },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -246,7 +275,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Fries,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Other },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -254,7 +284,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.FroggleBunwich,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Seafood, FoodCategory.Sandwich },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -262,7 +293,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.FruitJuice,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Sweet, FoodCategory.Fruit, FoodCategory.Drink },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -270,7 +302,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.FruitSalad,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Fruit, FoodCategory.Salad },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -278,7 +311,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.GingerbreadCookie,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Sweet },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -286,7 +320,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.GoldenDelight,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Meat },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -294,7 +329,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Grapefruit,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Fruit },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -302,7 +338,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.GrapeJuice,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Sweet, FoodCategory.Fruit, FoodCategory.Drink },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -310,7 +347,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Grapes,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Fruit },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -318,7 +356,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.GrilledSquirrel,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Meat },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -326,7 +365,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.GrubSoup,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Meat, FoodCategory.Soup },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -334,7 +374,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Hotdog,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Other },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -342,7 +383,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.IceCream,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Sweet },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -350,7 +392,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.JojaCola,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Sweet, FoodCategory.Drink },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -358,7 +401,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Lemon,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Fruit },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -366,7 +410,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Lemonade,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Sweet, FoodCategory.Fruit, FoodCategory.Drink },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -374,7 +419,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.LobsterTail,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Seafood },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -382,7 +428,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Mango,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Fruit },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -390,7 +437,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Marshmallow,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Sweet },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -398,7 +446,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.MilkCarton,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Drink },
-					BuffDuration = 20.Seconds()
+					BuffDuration = 20.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -406,7 +455,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Milkshake,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Sweet, FoodCategory.Drink },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -414,7 +464,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.MonsterLasagna,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Meat },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -422,7 +473,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Nachos,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Other },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -430,7 +482,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.PadThai,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Other },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -438,7 +491,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Peach,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Fruit },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -446,7 +500,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.PeachSangria,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Sweet, FoodCategory.Drink },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -454,7 +509,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Pho,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Meat, FoodCategory.Soup },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -462,7 +518,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.PinaColada,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Sweet, FoodCategory.Drink },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -470,7 +527,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Pineapple,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Fruit },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -478,7 +536,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Pizza,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Other },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -486,7 +545,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Plum,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Fruit },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -494,7 +554,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Pomegranate,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Fruit },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -502,7 +563,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.PotatoChips,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Other },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -510,7 +572,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.PrismaticPunch,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Sweet, FoodCategory.Drink },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -518,7 +581,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.PumpkinPie,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Vegetable, FoodCategory.Sweet },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -526,7 +590,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Rambutan,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Fruit },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -534,7 +599,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.RoastedBird,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Meat },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -542,7 +608,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.RoastedDuck,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Meat },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -550,7 +617,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Sake,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Alcohol },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -558,7 +626,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Sashimi,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Fish },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -566,7 +635,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.SauteedFrogLegs,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Seafood },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -574,7 +644,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.ShrimpPoBoy,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Other },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -582,7 +653,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.SmoothieofDarkness,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Fruit, FoodCategory.Drink },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -590,7 +662,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.ShuckedOyster,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Seafood },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -598,7 +671,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Spaghetti,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Meat },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -606,7 +680,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.SpicyPepper,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Vegetable },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -614,7 +689,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Starfruit,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Fruit },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -622,7 +698,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Steak,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Meat },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -630,7 +707,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.SugarCookie,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Sweet },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -638,7 +716,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.Teacup,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Drink },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 
@@ -646,7 +725,8 @@ public class GlobalFoodCategorizer : GlobalItem
 				ItemID.TropicalSmoothie,
 				new FoodInfo() {
 					Categories = new List<FoodCategory> { FoodCategory.Fruit, FoodCategory.Drink },
-					BuffDuration = 30.Seconds()
+					BuffDuration = 30.Seconds(),
+					BuffIntensity = 1.15f
 				}
 			},
 		};

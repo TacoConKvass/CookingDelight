@@ -20,4 +20,5 @@ public class FoodInfo
 {
 	public List<FoodCategory> Categories { get; set; }
 	public int BuffDuration { get; set; }
+	public float BuffIntensity { get; set; }
 }
