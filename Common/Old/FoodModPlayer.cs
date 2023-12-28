@@ -1,5 +1,6 @@
-namespace CookingDelight.Common;
+namespace CookingDelight.Common.Old;
 
+[Obsolete("Old. Do not touch")]
 public class FoodModPlayer : ModPlayer
 {
 	// Immunity to vanilla food related buffs / debuffs

@@ -1,7 +1,6 @@
-using CookingDelight.Common;
+namespace CookingDelight.Common.Old;
 
-namespace CookingDelight.Common;
-
+[Obsolete("Old. Do not touch")]
 public class GlobalFoodCategorizer : GlobalItem
 {
 	public static Dictionary<int, FoodInfo> vanillaFoodCategories;
