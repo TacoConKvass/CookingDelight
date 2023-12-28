@@ -1,3 +1,4 @@
+/*
 namespace CookingDelight.Common.Old;
 
 public enum FoodCategory
@@ -23,3 +24,4 @@ public class FoodInfo
 	public int BuffDuration { get; set; }
 	public float BuffIntensity { get; set; }
 }
+*/

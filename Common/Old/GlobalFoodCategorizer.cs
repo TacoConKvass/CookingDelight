@@ -1,3 +1,4 @@
+/*
 namespace CookingDelight.Common.Old;
 
 [Obsolete("Old. Do not touch")]
@@ -731,3 +732,4 @@ public class GlobalFoodCategorizer : GlobalItem
 		};
 	}
 }
+*/
