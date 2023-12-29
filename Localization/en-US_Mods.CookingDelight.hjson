@@ -1,1 +1,11 @@
 # This file will automatically update with entries for new content after a build and reload
+FoodCategories: {
+	Meat: "[c/BF2015:Meat]"
+	Seafood: "[c/157696:Seafood]"
+	Fruit: "[c/04e00b:Fruit]"
+	Vegetable: "[c/04e02d:Vegetable]"
+	Sweet: "[c/04e0b0:Sweet]"
+	Alcohol: "[c/ad04e0:Alcohol]"
+	Spice: "[c/730b0b:Spice]"
+	Other: "[c/8c8c8c:Other]"
+}
