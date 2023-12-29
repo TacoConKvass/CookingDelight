@@ -1,11 +1,9 @@
-using Terraria.DataStructures;
-
 namespace CookingDelight.Common;
 
 public class FoodCategorizer : GlobalItem
 {
 
-	public static Dictionary<FoodCategory, List<int>> FoodByCategory;
+	public static Dictionary<FoodCategory, List<int>> FoodByCategory = new Dictionary<FoodCategory, List<int>>();
 
 	public override void Unload() {
 		FoodByCategory = null;
@@ -16,27 +14,48 @@ public class FoodCategorizer : GlobalItem
 			ItemID.Bacon,
 			ItemID.BBQRibs,
 			ItemID.Bird,
+			ItemID.BlackScorpion,
+			ItemID.BlueJay,
+			ItemID.BlueMacaw,
 			ItemID.Bunny,
 			ItemID.BunnyStew,
+			ItemID.Buggy,
 			ItemID.Burger,
+			ItemID.Cardinal,
 			ItemID.ChickenNugget,
 			ItemID.Duck,
+			ItemID.GoldBird,
+			ItemID.GoldBunny,
 			ItemID.GoldenDelight,
+			ItemID.GoldMouse,
+			ItemID.SquirrelGold,
+			ItemID.GrayCockatiel,
+			ItemID.Grebe,
 			ItemID.GrilledSquirrel,
 			ItemID.Grubby,
 			ItemID.GrubSoup,
+			ItemID.TurtleJungle,
 			ItemID.MallardDuck,
 			ItemID.MonsterLasagna,
 			ItemID.Mouse,
 			ItemID.Owl,
+			ItemID.Penguin,
 			ItemID.Pho,
+			ItemID.Rat,
 			ItemID.RoastedBird,
 			ItemID.RoastedDuck,
+			ItemID.RottenChunk,
+			ItemID.ScarletMacaw,
+			ItemID.Scorpion,
 			ItemID.Seagull,
 			ItemID.Spaghetti,
 			ItemID.Squirrel,
 			ItemID.SquirrelRed,
-			ItemID.Turtle
+			ItemID.Steak,
+			ItemID.Toucan,
+			ItemID.Turtle,
+			ItemID.Vertebrae,
+			ItemID.YellowCockatiel
 		});
 
 		FoodByCategory.Add(FoodCategory.Seafood, new List<int>() {
@@ -48,6 +67,7 @@ public class FoodCategorizer : GlobalItem
 			ItemID.Batfish,
 			ItemID.Bladetongue,
 			ItemID.BloodyManowar,
+			ItemID.BlueJellyfish,
 			ItemID.BombFish,
 			ItemID.Bonefish,
 			ItemID.BowlofSoup,
@@ -80,7 +100,12 @@ public class FoodCategorizer : GlobalItem
 			ItemID.FroggleBunwich,
 			ItemID.FrostDaggerfish,
 			ItemID.FrostMinnow,
+			ItemID.GlowingSnail,
 			ItemID.Goldfish,
+			ItemID.GoldFrog,
+			ItemID.GoldGoldfish,
+			ItemID.GoldSeahorse,
+			ItemID.GreenJellyfish,
 			ItemID.GuideVoodooFish,
 			ItemID.Harpyfish,
 			ItemID.Hemopiranha,
@@ -98,9 +123,11 @@ public class FoodCategorizer : GlobalItem
 			ItemID.Obsidifish,
 			ItemID.Oyster,
 			ItemID.Pengfish,
+			ItemID.PinkJellyfish,
 			ItemID.Pixiefish,
 			ItemID.PrincessFish,
 			ItemID.Prismite,
+			ItemID.Pupfish,
 			ItemID.PurpleClubberfish,
 			ItemID.ReaverShark,
 			ItemID.RedSnapper,
@@ -112,10 +139,15 @@ public class FoodCategorizer : GlobalItem
 			ItemID.SawtoothShark,
 			ItemID.ScarabFish,
 			ItemID.ScorpioFish,
+			ItemID.SeafoodDinner,
+			ItemID.Seahorse,
+			ItemID.Seaweed,
 			ItemID.SharkFin,
 			ItemID.Shrimp,
+			ItemID.ShrimpPoBoy,
 			ItemID.ShuckedOyster,
 			ItemID.Slimefish,
+			ItemID.Sluggy,
 			ItemID.Snail,
 			ItemID.SpecularFish,
 			ItemID.Spiderfish,
@@ -185,10 +217,13 @@ public class FoodCategorizer : GlobalItem
 			ItemID.AppleJuice,
 			ItemID.ApplePie,
 			ItemID.BananaSplit,
+			ItemID.BottledHoney,
+			ItemID.CandyCorn,
 			ItemID.ChocolateChipCookie,
 			ItemID.ChristmasPudding,
 			ItemID.CookedMarshmallow,
 			ItemID.CreamSoda,
+			ItemID.Eggnog,
 			ItemID.FruitJuice,
 			ItemID.GingerbreadCookie,
 			ItemID.GrapeJuice,
@@ -205,6 +240,7 @@ public class FoodCategorizer : GlobalItem
 		FoodByCategory.Add(FoodCategory.Alcohol, new List<int>() {
 			ItemID.Ale,
 			ItemID.BananaDaiquiri,
+			ItemID.BloodyMoscato,
 			ItemID.PeachSangria,
 			ItemID.PinaColada,
 			ItemID.Sake
@@ -218,7 +254,19 @@ public class FoodCategorizer : GlobalItem
 			ItemID.Moonglow,
 			ItemID.Shiverthorn,
 			ItemID.SpicyPepper,
+			ItemID.StarAnise,
 			ItemID.Waterleaf
+		});
+
+		FoodByCategory.Add(FoodCategory.Other, new List<int>() {
+			ItemID.CoffeeCup,
+			ItemID.FriedEgg,
+			ItemID.Fries,
+			ItemID.MilkCarton,
+			ItemID.Nachos,
+			ItemID.Pizza,
+			ItemID.PotatoChips,
+			ItemID.Teacup
 		});
 	}
 }
