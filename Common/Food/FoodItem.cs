@@ -1,14 +1,18 @@
 namespace CookingDelight.Common;
 
 /// <summary>
-/// Abstract class describing a food item in a way that this mod intends. <br/>
-/// Override <see cref="Categories"/> to set which categories the item belongs to. <br/>
-/// <see cref="ItemID.Sets.IsFood"/> is automatically set to <see langword="true"/>.
+/// Abstract class describing a food item in a way that this mod intends.
 /// </summary>
 public abstract class FoodItem : ModItem
 {
+	/// <summary>
+	/// List of FoodCategories this item belongs to.
+	/// </summary>
 	public abstract List<FoodCategory> Categories { get; }
 
+	/// <summary>
+	/// When using overriding this method make sure to call <code>base.SetStaticDefaults()</code>
+	/// </summary>
 	public override void SetStaticDefaults() {
 		ItemID.Sets.IsFood[Item.type] = true;
 		foreach (var category in Categories) { 
