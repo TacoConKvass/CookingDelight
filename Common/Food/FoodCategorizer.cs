@@ -10,7 +10,7 @@ public class FoodCategorizer : GlobalItem
 	}
 
 	public FoodCategorizer() {
-		FoodByCategory.Add(FoodCategory.Meat, new List<int>() { 
+		FoodByCategory.Add(FoodCategory.Meat, new List<int>() {
 			ItemID.Bacon,
 			ItemID.BBQRibs,
 			ItemID.Bird,
