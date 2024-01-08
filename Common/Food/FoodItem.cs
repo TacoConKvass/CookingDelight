@@ -23,8 +23,8 @@ public abstract class FoodItem : ModItem {
 			// Vanilla item check
 			if (ingredient_type > ItemID.None && ingredient_type < ItemID.Count) {
 
-				//Iterate through the FoodByCategory dict
-				foreach (var (category, list) in FoodCategorizer.FoodByCategory) {
+				//Iterate through the VanillaFoodByCategory dict
+				foreach (var (category, list) in VanillaFoodCategorizer.VanillaFoodByCategory) {
 					if (list.Contains(ingredient_type)) {
 						Categories.Add(category);
 					}

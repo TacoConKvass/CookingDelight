@@ -1,16 +1,16 @@
 namespace CookingDelight.Common;
 
-public class FoodCategorizer : GlobalItem
+public class VanillaFoodCategorizer : GlobalItem
 {
 
-	public static Dictionary<FoodCategory, List<int>> FoodByCategory = new Dictionary<FoodCategory, List<int>>();
+	public static Dictionary<FoodCategory, List<int>> VanillaFoodByCategory = new Dictionary<FoodCategory, List<int>>();
 
 	public override void Unload() {
-		FoodByCategory = null;
+		VanillaFoodByCategory = null;
 	}
 
-	public FoodCategorizer() {
-		FoodByCategory.Add(FoodCategory.Meat, new List<int>() {
+	public VanillaFoodCategorizer() {
+		VanillaFoodByCategory.Add(FoodCategory.Meat, new List<int>() {
 			ItemID.Bacon,
 			ItemID.BBQRibs,
 			ItemID.Bird,
@@ -58,7 +58,7 @@ public class FoodCategorizer : GlobalItem
 			ItemID.YellowCockatiel
 		});
 
-		FoodByCategory.Add(FoodCategory.Seafood, new List<int>() {
+		VanillaFoodByCategory.Add(FoodCategory.Seafood, new List<int>() {
 			ItemID.AmanitaFungifin,
 			ItemID.Angelfish,
 			ItemID.ArmoredCavefish,
@@ -166,7 +166,7 @@ public class FoodCategorizer : GlobalItem
 			ItemID.ZombieFish
 		});
 
-		FoodByCategory.Add(FoodCategory.Fruit, new List<int>() {
+		VanillaFoodByCategory.Add(FoodCategory.Fruit, new List<int>() {
 			ItemID.Apple,
 			ItemID.AppleJuice,
 			ItemID.ApplePie,
@@ -199,7 +199,7 @@ public class FoodCategorizer : GlobalItem
 			ItemID.TropicalSmoothie
 		});
 
-		FoodByCategory.Add(FoodCategory.Vegetable, new List<int>() {
+		VanillaFoodByCategory.Add(FoodCategory.Vegetable, new List<int>() {
 			ItemID.Cactus,
 			ItemID.GlowingMushroom,
 			ItemID.GreenMushroom,
@@ -213,7 +213,7 @@ public class FoodCategorizer : GlobalItem
 			ItemID.VileMushroom
 		});
 
-		FoodByCategory.Add(FoodCategory.Sweet, new List<int>() {
+		VanillaFoodByCategory.Add(FoodCategory.Sweet, new List<int>() {
 			ItemID.AppleJuice,
 			ItemID.ApplePie,
 			ItemID.BananaSplit,
@@ -237,7 +237,7 @@ public class FoodCategorizer : GlobalItem
 			ItemID.SugarCookie
 		});
 
-		FoodByCategory.Add(FoodCategory.Alcohol, new List<int>() {
+		VanillaFoodByCategory.Add(FoodCategory.Alcohol, new List<int>() {
 			ItemID.Ale,
 			ItemID.BananaDaiquiri,
 			ItemID.BloodyMoscato,
@@ -246,7 +246,7 @@ public class FoodCategorizer : GlobalItem
 			ItemID.Sake
 		});
 
-		FoodByCategory.Add(FoodCategory.Spice, new List<int>() {
+		VanillaFoodByCategory.Add(FoodCategory.Spice, new List<int>() {
 			ItemID.Blinkroot,
 			ItemID.Daybloom,
 			ItemID.Deathweed,
@@ -258,7 +258,7 @@ public class FoodCategorizer : GlobalItem
 			ItemID.Waterleaf
 		});
 
-		FoodByCategory.Add(FoodCategory.Other, new List<int>() {
+		VanillaFoodByCategory.Add(FoodCategory.Other, new List<int>() {
 			ItemID.CoffeeCup,
 			ItemID.FriedEgg,
 			ItemID.Fries,
