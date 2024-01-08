@@ -10,6 +10,13 @@ public class GlobalFoodTooltip : GlobalItem
 				var line = new TooltipLine(Mod, "foodCategory", Language.GetTextValue($"Mods.CookingDelight.FoodCategories.{foodCategory}"));
 				tooltips.Add(line);
 			}
+
+			if (ModContent.GetModItem(item.type) is FoodItem food_item) {
+				if (food_item.Categories.Contains(foodCategory)) {
+					var line = new TooltipLine(Mod, "foodCategory", Language.GetTextValue($"Mods.CookingDelight.FoodCategories.{foodCategory}"));
+					tooltips.Add(line);	
+				}
+			}
 		}
 	}
 }
