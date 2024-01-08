@@ -5,14 +5,14 @@ namespace CookingDelight.Common.EntitySources;
 
 public class ItemSource_Cooking : IEntitySource
 {
-	public List<int> input_ingredients;
+	public List<int> ingredients;
 
 	/// <summary>
 	/// EntitySource meant to pass arguments to FoodItems OnSpawn hook.
 	/// </summary>
 	/// <param name="ingredients">List of IDs of the items, that are supposed to be used as ingredients in the cooking process</param>
-	public ItemSource_Cooking(List<int> ingredients) {
-		input_ingredients = ingredients;
+	public ItemSource_Cooking(List<int> input_ingredients) {
+		ingredients = input_ingredients;
 	}
 	public string? Context => null;
 }
