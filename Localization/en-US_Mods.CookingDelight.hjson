@@ -9,3 +9,10 @@ FoodCategories: {
 	Spice: "[c/730b0b:Spice]"
 	Other: "[c/8c8c8c:Other]"
 }
+
+Items: {
+	MixFoodItem: {
+		DisplayName: Mix Food Item
+		Tooltip: ""
+	}
+}

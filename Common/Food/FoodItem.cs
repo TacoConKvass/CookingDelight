@@ -6,12 +6,11 @@ namespace CookingDelight.Common;
 /// <summary>
 /// Abstract class describing a food item in a way that this mod intends.
 /// </summary>
-public abstract class FoodItem : ModItem
-{
+public abstract class FoodItem : ModItem {
 	/// <summary>
 	/// List of FoodCategories this item belongs to.
 	/// </summary>
-	public virtual List<FoodCategory> Categories { get; set; }
+	public virtual List<FoodCategory> Categories => new List<FoodCategory>() { };
 
 	public override void OnSpawn(IEntitySource source) {
 		if (source is not ItemSource_Cooking) {
@@ -41,6 +40,10 @@ public abstract class FoodItem : ModItem
 	}
 
 	public override void OnConsumeItem(Player player) {
-
+		foreach (var category in Categories) { 
+			if (category == FoodCategory.Sweet) {
+				player.moveSpeed += 0.3f;
+			}
+		}
 	}
 }
