@@ -8,6 +8,6 @@ public enum FoodCategory
 	Vegetable,
 	Sweet,
 	Alcohol,
-	Spice,
-	Other
+	Other,
+	Spice
 }
