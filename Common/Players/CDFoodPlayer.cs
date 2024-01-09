@@ -1,6 +1,3 @@
-using CookingDelight.Common;
-using Terraria.ModLoader;
-
 namespace CookingDelight.Common.Players;
 
 public class CDFoodPlayer : ModPlayer {
@@ -11,9 +8,15 @@ public class CDFoodPlayer : ModPlayer {
 	public override void PreUpdate() {
 		for (int index = 0; index < 7; index++) { 
 			ref int timer = ref FoodTimers[index];
+			ref int level = ref FoodLevels[index];
+
 			if (timer > 0) { 
 				timer--;
+				break;
 			}
+
+			// Reset food bonus if timer == 0
+			level = 0;
 		}
 	}
 
