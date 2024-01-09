@@ -1,3 +1,7 @@
+
+using CookingDelight.Common.Players;
+using System.Linq;
+
 namespace CookingDelight.Common;
 
 public class VanillaFoodCategorizer : GlobalItem
@@ -268,5 +272,28 @@ public class VanillaFoodCategorizer : GlobalItem
 			ItemID.PotatoChips,
 			ItemID.Teacup
 		});
+	}
+
+	public override void OnConsumeItem(Item item, Player player) {
+		if (item.type > ItemID.None && item.type < ItemID.Count) {
+			var foodPlayer = player.GetModPlayer<CDFoodPlayer>();
+
+			foreach (var values in VanillaFoodByCategory.Values) {
+				if (values.Contains(item.type)) {
+					// Clear already applied buffs 
+					foodPlayer.FoodLevels = new int[7];
+					foodPlayer.FoodTimers = new int[7];
+					break;
+				}
+			}
+
+			foreach (var (category, value) in VanillaFoodByCategory) {
+				if (value.Contains(item.type)) {
+					foodPlayer.FoodLevels[(int)category]++;
+					foodPlayer.FoodTimers[(int)category] = 300;
+					Main.NewText(foodPlayer.FoodLevels[(int)category]);
+				}
+			}
+		}
 	}
 }
