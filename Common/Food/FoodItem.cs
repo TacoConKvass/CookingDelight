@@ -64,6 +64,10 @@ public abstract class FoodItem : ModItem {
 	public override void OnConsumeItem(Player player) {
 		var foodPlayer = player.GetModPlayer<CDFoodPlayer>();
 
+		// Clear already applied buffs 
+		foodPlayer.FoodLevels = new int[7];
+		foodPlayer.FoodTimers = new int[7];	
+
 		foreach (var category in Categories) { 	
 			if (foodPlayer.FoodLevels[(int)category] < maxLevel) {
 				foodPlayer.FoodLevels[(int)category]++;
