@@ -24,7 +24,7 @@ public abstract class FoodItem : ModItem {
 	/// <summary>
 	/// Max level of the effects
 	/// </summary>
-	private readonly int maxLevel = 5;
+	private readonly int maxLevel = 10;
 
 	public override void SetStaticDefaults() {
 		Item.ResearchUnlockCount = 10;
