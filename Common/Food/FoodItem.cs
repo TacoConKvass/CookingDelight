@@ -12,6 +12,12 @@ public abstract class FoodItem : ModItem {
 	/// </summary>
 	public virtual List<FoodCategory> Categories => new List<FoodCategory>() { };
 
+	public override void SetStaticDefaults() {
+		Item.ResearchUnlockCount = 10;
+		ItemID.Sets.IsFood[Type] = true;
+		Main.RegisterItemAnimation(Type, new DrawAnimationVertical(int.MaxValue, 3));
+	}
+
 	public override void OnSpawn(IEntitySource source) {
 		if (source is not ItemSource_Cooking) {
 			return;
@@ -20,7 +26,8 @@ public abstract class FoodItem : ModItem {
 		Categories.Clear();
 		var ingredients = (source as ItemSource_Cooking).ingredients;
 		foreach (int ingredient_type in ingredients) {
-			// Vanilla item check
+
+			// Vanilla item
 			if (ingredient_type > ItemID.None && ingredient_type < ItemID.Count) {
 
 				//Iterate through the VanillaFoodByCategory dict
@@ -30,7 +37,8 @@ public abstract class FoodItem : ModItem {
 					}
 				}
 			}
-
+			
+			// Modded item iinheriting from FoodItem
 			else if (ModContent.GetModItem(ingredient_type) is FoodItem food_item_instance) {
 				foreach (var category in food_item_instance.Categories) {
 					Categories.Add(category);
