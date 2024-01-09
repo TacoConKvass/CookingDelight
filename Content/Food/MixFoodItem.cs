@@ -5,7 +5,9 @@ namespace CookingDelight.Content.Food;
 
 public class MixFoodItem : FoodItem
 {
-	public override List<FoodCategory> Categories => new List<FoodCategory>() { FoodCategory.Sweet };
+	public override List<FoodCategory> Categories => new List<FoodCategory>() { FoodCategory.Sweet, FoodCategory.Sweet, FoodCategory.Sweet, FoodCategory.Meat };
+
+	public override int BuffTime => 600;
 
 	public override void SetDefaults() {
 		Item.Size = new Vector2(16, 16);
