@@ -1,4 +1,6 @@
 using CookingDelight.Common.EntitySources;
+using CookingDelight.Common.Players;
+using System.Linq;
 using Terraria.DataStructures;
 
 namespace CookingDelight.Common;
@@ -7,10 +9,22 @@ namespace CookingDelight.Common;
 /// Abstract class describing a food item in a way that this mod intends.
 /// </summary>
 public abstract class FoodItem : ModItem {
+	
 	/// <summary>
-	/// List of FoodCategories this item belongs to.
+	/// List of FoodCategories this item belongs to. <br>
+	/// To raise the level of the effects, include the category multiple times.
 	/// </summary>
-	public virtual List<FoodCategory> Categories => new List<FoodCategory>() { };
+	public abstract List<FoodCategory> Categories { get; }
+
+	/// <summary>
+	/// How long will the effects acquired from this food last
+	/// </summary>
+	public abstract int BuffTime { get; }
+
+	/// <summary>
+	/// Max level of the effects
+	/// </summary>
+	private readonly int maxLevel = 5;
 
 	public override void SetStaticDefaults() {
 		Item.ResearchUnlockCount = 10;
@@ -38,7 +52,7 @@ public abstract class FoodItem : ModItem {
 				}
 			}
 			
-			// Modded item iinheriting from FoodItem
+			// Modded item inheriting from FoodItem
 			else if (ModContent.GetModItem(ingredient_type) is FoodItem food_item_instance) {
 				foreach (var category in food_item_instance.Categories) {
 					Categories.Add(category);
@@ -48,10 +62,15 @@ public abstract class FoodItem : ModItem {
 	}
 
 	public override void OnConsumeItem(Player player) {
-		foreach (var category in Categories) { 
-			if (category == FoodCategory.Sweet) {
-				player.moveSpeed += 0.3f;
+		var foodPlayer = player.GetModPlayer<CDFoodPlayer>();
+
+		foreach (var category in Categories) { 	
+			if (foodPlayer.FoodLevels[(int)category] < maxLevel) {
+				foodPlayer.FoodLevels[(int)category]++;
+				Main.NewText(foodPlayer.FoodLevels[(int)category]);
 			}
+
+			foodPlayer.FoodTimers[(int)category] = BuffTime;
 		}
 	}
 }
