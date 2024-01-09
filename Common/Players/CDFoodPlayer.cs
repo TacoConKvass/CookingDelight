@@ -6,17 +6,14 @@ public class CDFoodPlayer : ModPlayer {
 	public int[] FoodTimers = new int[7];
 
 	public override void PreUpdate() {
-		for (int index = 0; index < 7; index++) { 
-			ref int timer = ref FoodTimers[index];
-			ref int level = ref FoodLevels[index];
-
-			if (timer > 0) { 
-				timer--;
+		for (int index = 0; index < 7; index++) {
+			if (FoodTimers[index] > 0) {
+				FoodTimers[index]--;
 				break;
 			}
 
 			// Reset food bonus if timer == 0
-			level = 0;
+			FoodLevels[index] = 0;
 		}
 	}
 
@@ -28,7 +25,7 @@ public class CDFoodPlayer : ModPlayer {
 			Player.GetDamage(DamageClass.Generic) += 0.1f * FoodLevels[(int)FoodCategory.Seafood];
 		}
 		if (FoodTimers[(int)FoodCategory.Fruit] > 0) {
-			//Player.endurance += (0.1f * FoodLevels[(int)FoodCategory.Fruit]);
+			Player.lifeRegen+= 2 * FoodLevels[(int)FoodCategory.Fruit];
 		}
 		if (FoodTimers[(int)FoodCategory.Vegetable] > 0) {
 			Player.statLifeMax2 += 20 * FoodLevels[(int)FoodCategory.Vegetable];
