@@ -1,7 +1,5 @@
 using CookingDelight.Common;
-using CookingDelight.Common.EntitySources;
 using Microsoft.Xna.Framework;
-using Terraria.DataStructures;
 
 namespace CookingDelight.Content.Food;
 
@@ -12,6 +10,12 @@ public class MixFoodItem : FoodItem
 	public override void SetDefaults() {
 		Item.Size = new Vector2(16, 16);
 		Item.maxStack = 9999;
-		Item.ResearchUnlockCount = 10;
+		Item.consumable = true;
+
+		Item.useStyle = ItemUseStyleID.EatFood;
+		Item.useAnimation = 30;
+		Item.useTime = 30;
+
+		Item.buffType = BuffID.WellFed;
 	}
 }
