@@ -61,6 +61,14 @@ public abstract class FoodItem : ModItem {
 		}
 	}
 
+	public override bool CanStack(Item source) {
+		if ((source.ModItem as FoodItem).Categories.Except(Categories).Count() == 0) {
+			return true;
+		}
+
+		return false;
+	}
+
 	public override void OnConsumeItem(Player player) {
 		var foodPlayer = player.GetModPlayer<CDFoodPlayer>();
 
