@@ -19,7 +19,7 @@ public class CDFoodPlayer : ModPlayer {
 
 	public override void PostUpdateBuffs() {
 		if (FoodTimers[(int)FoodCategory.Meat] > 0) {
-			Player.endurance += (0.1f * FoodLevels[(int)FoodCategory.Meat]);
+			Player.endurance += 0.05f * FoodLevels[(int)FoodCategory.Meat];
 		}
 		if (FoodTimers[(int)FoodCategory.Seafood] > 0) {
 			Player.GetDamage(DamageClass.Generic) += 0.1f * FoodLevels[(int)FoodCategory.Seafood];
@@ -34,7 +34,7 @@ public class CDFoodPlayer : ModPlayer {
 			Player.moveSpeed += 0.2f * FoodLevels[(int)FoodCategory.Sweet];
 		}
 		if (FoodTimers[(int)FoodCategory.Alcohol] > 0) {
-			Player.statDefense -= 5 * FoodLevels[(int)FoodCategory.Alcohol];
+			Player.statDefense -= 2 * FoodLevels[(int)FoodCategory.Alcohol];
 			Player.GetDamage(DamageClass.Generic) += 0.15f * FoodLevels[(int)FoodCategory.Alcohol];
 			Player.GetAttackSpeed(DamageClass.Generic) += 0.1f * FoodLevels[(int)FoodCategory.Alcohol];
 		}
