@@ -2,6 +2,7 @@ using CookingDelight.Common.EntitySources;
 using CookingDelight.Common.Players;
 using System.Linq;
 using Terraria.DataStructures;
+using Terraria.ModLoader.IO;
 
 namespace CookingDelight.Common;
 
@@ -14,12 +15,12 @@ public abstract class FoodItem : ModItem {
 	/// List of FoodCategories this item belongs to. <br>
 	/// To raise the level of the effects, include the category multiple times.
 	/// </summary>
-	public abstract List<FoodCategory> Categories { get; }
+	public abstract List<FoodCategory> Categories { get; set; }
 
 	/// <summary>
 	/// How long will the effects acquired from this food last
 	/// </summary>
-	public abstract int BuffTime { get; }
+	public abstract int BuffTime { get; set; }
 
 	/// <summary>
 	/// Max level of the effects
@@ -84,5 +85,15 @@ public abstract class FoodItem : ModItem {
 
 			foodPlayer.FoodTimers[(int)category] = BuffTime;
 		}
+	}
+
+	public override void SaveData(TagCompound tag) {
+		tag["Categories"] = Categories;
+		tag["BuffTime"] = BuffTime;
+	}
+
+	public override void LoadData(TagCompound tag) {
+		Categories = tag.Get<List<FoodCategory>>("Categories");
+		BuffTime = tag.Get<int>("BuffTime");
 	}
 }
