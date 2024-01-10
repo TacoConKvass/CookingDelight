@@ -9,6 +9,8 @@ public class VanillaFoodCategorizer : GlobalItem
 
 	public static Dictionary<FoodCategory, List<int>> VanillaFoodByCategory = new Dictionary<FoodCategory, List<int>>();
 
+	public static int VanillaFoodBuffTime = 300;
+
 	public override void Unload() {
 		VanillaFoodByCategory = null;
 	}
@@ -290,7 +292,7 @@ public class VanillaFoodCategorizer : GlobalItem
 			foreach (var (category, value) in VanillaFoodByCategory) {
 				if (value.Contains(item.type)) {
 					foodPlayer.FoodLevels[(int)category]++;
-					foodPlayer.FoodTimers[(int)category] = 300;
+					foodPlayer.FoodTimers[(int)category] = VanillaFoodBuffTime;
 					Main.NewText(foodPlayer.FoodLevels[(int)category]);
 				}
 			}
