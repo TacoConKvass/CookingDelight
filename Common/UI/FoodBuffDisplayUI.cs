@@ -43,8 +43,8 @@ public class FoodBuffDisplayUI {
 		string mouseHover = "";
 
 		foreach (FoodCategory category in Enum.GetValues(typeof(FoodCategory))) {
-			if (category == FoodCategory.Spice) {
-				break;
+			if (!foodBuffTextures.ContainsKey(category)) {
+				continue;
 			}
 
 			if (FoodLevels[(int)category] == 0) {
@@ -58,6 +58,7 @@ public class FoodBuffDisplayUI {
 			var buffTexture = foodBuffTextures[category];
 
 			spriteBatch.Draw(buffTexture, drawPosition, null, Color.White * 0.9f, 0f, buffTexture.Size() * 0.5f, UIScale, SpriteEffects.None, 0f);
+			drawPosition += Spacing;
 		}
 		
 		if (mouseHover != "") {
