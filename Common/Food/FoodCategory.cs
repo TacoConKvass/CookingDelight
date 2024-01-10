@@ -4,7 +4,7 @@ public enum FoodCategory
 {
 	Meat,		// ++Endurance
 	Seafood,	// ++Damage
-	Fruit,		// ++?
+	Fruit,		// ++Life regen
 	Vegetable,	// ++Max HP
 	Sweet,		// ++Speed
 	Alcohol,	// --Defense, +Attack speed, +Damage
