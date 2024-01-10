@@ -10,6 +10,15 @@ FoodCategories: {
 	Other: "[c/8c8c8c:Other {0}]"
 }
 
+FoodBuffDescriptions: {
+    Meat: "[c/BF2015:Meat {0}] - Provides {1} percent damage reduction"
+    Seafood: "[c/157696:Seafood {0}] - Provides {1} percent damage boost"
+    Fruit: "[c/04e00b:Fruit {0}] - Provides {1} life regen boost"
+    Vegetable: "[c/04e02d:Vegetable {0}] - Provides {1} additional HP"
+    Sweet: "[c/04e0b0:Sweet {0}] - Provides {1} percent movement speed boost"
+	Alcohol: "[c/ad04e0:Alcohol {0}] - Reduces defense by {1}, provides {2} percent damage boost and {3} percent attack speed boost"
+}
+
 Items: {
 	MixFoodItem: {
 		DisplayName: Mix Food Item
