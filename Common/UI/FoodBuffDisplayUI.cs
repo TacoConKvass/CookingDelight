@@ -43,22 +43,19 @@ public class FoodBuffDisplayUI {
 		string mouseHover = "";
 
 		foreach (FoodCategory category in Enum.GetValues(typeof(FoodCategory))) {
-			if (!foodBuffTextures.ContainsKey(category)) {
-				continue;
-			}
+			if (foodBuffTextures.ContainsKey(category)) {
+				if (FoodLevels[(int)category] != 0) {
+					if (buffRectangle.Intersects(mouseRectangle)) {
+						mouseHover = Language.GetTextValue($"Mods.CookingDelight.FoodBuffDescriptions.{category}Buff").FormatWith(FoodLevels[(int)category]);
+					}
 
-			if (FoodLevels[(int)category] == 0) {
-				continue;
-			}
-			
-			if (buffRectangle.Intersects(mouseRectangle)) {
-				mouseHover = Language.GetTextValue($"Mods.CookingDelight.FoodBuffDescriptions.{category}Buff").FormatWith(FoodLevels[(int)category]);
-			}
+					var buffTexture = foodBuffTextures[category];
 
-			var buffTexture = foodBuffTextures[category];
-
-			spriteBatch.Draw(buffTexture, drawPosition, null, Color.White * 0.9f, 0f, buffTexture.Size() * 0.5f, UIScale, SpriteEffects.None, 0f);
-			drawPosition += Spacing;
+					spriteBatch.Draw(buffTexture, drawPosition, null, Color.White * 0.9f, 0f, buffTexture.Size() * 0.5f, UIScale, SpriteEffects.None, 0f);
+					drawPosition += Spacing;
+					
+				}
+			}
 		}
 		
 		if (mouseHover != "") {
