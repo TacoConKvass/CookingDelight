@@ -5,15 +5,18 @@ namespace CookingDelight.Content.Food;
 
 public class MixFoodItem : FoodItem
 {
-	public override List<FoodCategory> Categories {
-		get => new List<FoodCategory>() { FoodCategory.Sweet, FoodCategory.Sweet, FoodCategory.Sweet, FoodCategory.Meat };
-		set => Categories = value;
+	private List<FoodCategory> p_categories = new List<FoodCategory>() { FoodCategory.Sweet, FoodCategory.Sweet, FoodCategory.Meat };
+
+	public override List<FoodCategory> Categories { 
+		get => p_categories; 
+		set => p_categories = value;
 	}
 
+	private int p_buffTime = 600;
 
 	public override int BuffTime {
-		get => 600;
-		set => BuffTime = value;
+		get => p_buffTime;
+		set => p_buffTime = value;
 	}
 
 	public override void SetDefaults() {
