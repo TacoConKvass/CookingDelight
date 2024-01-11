@@ -88,12 +88,20 @@ public abstract class FoodItem : ModItem {
 	}
 
 	public override void SaveData(TagCompound tag) {
-		tag["Categories"] = Categories.ToArray();
+		var int_categories = new List<int>() { };
+		foreach (var category in Categories) {
+			int_categories.Add((int)category);
+		}
+		Categories.Clear();
+		tag["Categories"] = int_categories.ToArray();
 		tag["BuffTime"] = BuffTime;
 	}
 
 	public override void LoadData(TagCompound tag) {
-		Categories = tag.Get<FoodCategory[]>("Categories").ToList();
+		var int_categories = tag.Get<int[]>("Categories").ToList();
+		foreach (var category in int_categories) {
+			Categories.Add((FoodCategory)category);
+		}
 		BuffTime = tag.Get<int>("BuffTime");
 	}
 }
