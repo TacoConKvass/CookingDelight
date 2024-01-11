@@ -46,7 +46,7 @@ public class FoodBuffDisplayUI {
 			if (foodBuffTextures.ContainsKey(category)) {
 				if (FoodLevels[(int)category] != 0) {
 					if (buffRectangle.Intersects(mouseRectangle)) {
-						mouseHover = Language.GetTextValue($"Mods.CookingDelight.FoodBuffDescriptions.{category}Buff").FormatWith(FoodLevels[(int)category]);
+						mouseHover = Language.GetTextValue($"Mods.CookingDelight.FoodBuffDescriptions.{category}Buff").FormatWith(FoodLevels[(int)category] + $"\n {FoodTimers[(int)category]} seconds left");
 					}
 
 					var buffTexture = foodBuffTextures[category];
