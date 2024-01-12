@@ -73,7 +73,10 @@ public abstract class FoodItem : ModItem {
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips) {
-		foreach (var category in Categories) {
+		foreach (FoodCategory category in Enum.GetValues(typeof(FoodCategory))) {
+			if (!Categories.Contains(category)) {
+				continue;
+			}
 			string food_level = Math.Clamp(Categories.Where(element => element == category).Count(), 1, 10).ToRoman();
 			var line = new TooltipLine(Mod, "foodCategory", Language.GetTextValue($"Mods.CookingDelight.FoodCategories.{category}").FormatWith(food_level));
 			tooltips.Add(line);
