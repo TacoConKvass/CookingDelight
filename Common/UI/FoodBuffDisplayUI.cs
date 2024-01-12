@@ -12,11 +12,11 @@ public class FoodBuffDisplayUI {
 
 	public static Dictionary<FoodCategory, Texture2D> foodBuffTextures = new Dictionary<FoodCategory, Texture2D>() { 
 		{FoodCategory.Meat, ModContent.Request<Texture2D>(AssetPath + "MeatBuff").Value},
-		//{FoodCategory.Seafood, ModContent.Request<Texture2D>(AssetPath + "SeafoodBuff").Value},
+		{FoodCategory.Seafood, ModContent.Request<Texture2D>(AssetPath + "SeafoodBuff").Value},
 		{FoodCategory.Fruit, ModContent.Request<Texture2D>(AssetPath + "FruitBuff").Value},
 		{FoodCategory.Vegetable, ModContent.Request<Texture2D>(AssetPath + "VegetableBuff").Value},
-		{FoodCategory.Sweet, ModContent.Request<Texture2D>(AssetPath + "SweetBuff").Value}
-		//{FoodCategory.Alcohol, ModContent.Request<Texture2D>(AssetPath + "AlcoholBuff").Value},
+		{FoodCategory.Sweet, ModContent.Request<Texture2D>(AssetPath + "SweetBuff").Value},
+		{FoodCategory.Alcohol, ModContent.Request<Texture2D>(AssetPath + "AlcoholBuff").Value},
 	};
 
 	public static Vector2 BaseDrawPosition = new Vector2(100f, 200f);
@@ -57,7 +57,7 @@ public class FoodBuffDisplayUI {
 
 			var buffTexture = foodBuffTextures[category];
 
-					spriteBatch.Draw(buffTexture, drawPosition, null, Color.White * 0.9f, 0f, buffTexture.Size() * 0.5f, UIScale, SpriteEffects.None, 0f);
+			spriteBatch.Draw(buffTexture, drawPosition, null, Color.White * 0.9f, 0f, buffTexture.Size() * 0.5f, UIScale, SpriteEffects.None, 0f);
 			drawPosition += Spacing;
 		}
 		
