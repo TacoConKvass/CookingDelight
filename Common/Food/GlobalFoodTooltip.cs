@@ -13,14 +13,6 @@ public class GlobalFoodTooltip : GlobalItem
 				var line = new TooltipLine(Mod, "foodCategory", Language.GetTextValue($"Mods.CookingDelight.FoodCategories.{foodCategory}").FormatWith(1.ToRoman()));
 				tooltips.Add(line);
 			}
-
-			if (ModContent.GetModItem(item.type) is FoodItem food_item) {
-				if (food_item.Categories.Contains(foodCategory)) {
-					string food_level = Math.Clamp(food_item.Categories.Where(element => element == foodCategory).Count(), 1, 10).ToRoman();
-					var line = new TooltipLine(Mod, "foodCategory", Language.GetTextValue($"Mods.CookingDelight.FoodCategories.{foodCategory}").FormatWith(food_level));
-					tooltips.Add(line);	
-				}
-			}
 		}
 	}
 }

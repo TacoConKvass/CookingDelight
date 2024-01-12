@@ -1,7 +1,9 @@
 using CookingDelight.Common.EntitySources;
 using CookingDelight.Common.Players;
+using Humanizer;
 using System.Linq;
 using Terraria.DataStructures;
+using Terraria.Localization;
 using Terraria.ModLoader.IO;
 
 namespace CookingDelight.Common;
@@ -70,6 +72,14 @@ public abstract class FoodItem : ModItem {
 		return false;
 	}
 
+	public override void ModifyTooltips(List<TooltipLine> tooltips) {
+		foreach (var category in Categories) {
+			string food_level = Math.Clamp(Categories.Where(element => element == category).Count(), 1, 10).ToRoman();
+			var line = new TooltipLine(Mod, "foodCategory", Language.GetTextValue($"Mods.CookingDelight.FoodCategories.{category}").FormatWith(food_level));
+			tooltips.Add(line);
+		}
+	}
+
 	public override void OnConsumeItem(Player player) {
 		var foodPlayer = player.GetModPlayer<CDFoodPlayer>();
 
@@ -80,7 +90,6 @@ public abstract class FoodItem : ModItem {
 		foreach (var category in Categories) { 	
 			if (foodPlayer.FoodLevels[(int)category] < maxLevel) {
 				foodPlayer.FoodLevels[(int)category]++;
-				Main.NewText(foodPlayer.FoodLevels[(int)category]);
 			}
 
 			foodPlayer.FoodTimers[(int)category] = BuffTime;
@@ -88,20 +97,14 @@ public abstract class FoodItem : ModItem {
 	}
 
 	public override void SaveData(TagCompound tag) {
-		var int_categories = new List<int>() { };
-		foreach (var category in Categories) {
-			int_categories.Add((int)category);
-		}
-		Categories.Clear();
+		var int_categories = Categories.Cast<int>().ToArray();
 		tag["Categories"] = int_categories.ToArray();
 		tag["BuffTime"] = BuffTime;
 	}
 
 	public override void LoadData(TagCompound tag) {
-		var int_categories = tag.Get<int[]>("Categories").ToList();
-		foreach (var category in int_categories) {
-			Categories.Add((FoodCategory)category);
-		}
+		var int_categories = tag.Get<int[]>("Categories");
+		Categories = int_categories.Cast<FoodCategory>().ToList();
 		BuffTime = tag.Get<int>("BuffTime");
 	}
 }
