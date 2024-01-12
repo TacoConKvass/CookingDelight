@@ -19,7 +19,7 @@ public class FoodBuffDisplayUI {
 		//{FoodCategory.Alcohol, ModContent.Request<Texture2D>(AssetPath + "AlcoholBuff").Value},
 	};
 
-	public static Vector2 BaseDrawPosition = new Vector2(600f, 100f);
+	public static Vector2 BaseDrawPosition = new Vector2(100f, 200f);
 	public static Vector2 Spacing = new Vector2(20f, 0);
 
 	public static void Draw(SpriteBatch spriteBatch) {
@@ -43,19 +43,22 @@ public class FoodBuffDisplayUI {
 		string mouseHover = "";
 
 		foreach (FoodCategory category in Enum.GetValues(typeof(FoodCategory))) {
-			if (foodBuffTextures.ContainsKey(category)) {
-				if (FoodLevels[(int)category] != 0) {
-					if (buffRectangle.Intersects(mouseRectangle)) {
-						mouseHover = Language.GetTextValue($"Mods.CookingDelight.FoodBuffDescriptions.{category}Buff").FormatWith(FoodLevels[(int)category] + $"\n {FoodTimers[(int)category]} seconds left");
-					}
+			if (!foodBuffTextures.ContainsKey(category)) {
+				continue;
+			}
+			
+			if (FoodLevels[(int)category] == 0) {
+				continue;
+			}
 
-					var buffTexture = foodBuffTextures[category];
+			if (buffRectangle.Intersects(mouseRectangle)) {
+				mouseHover = Language.GetTextValue($"Mods.CookingDelight.FoodBuffDescriptions.{category}Buff").FormatWith(FoodLevels[(int)category] + $"\n {FoodTimers[(int)category]} seconds left");
+			}
+
+			var buffTexture = foodBuffTextures[category];
 
 					spriteBatch.Draw(buffTexture, drawPosition, null, Color.White * 0.9f, 0f, buffTexture.Size() * 0.5f, UIScale, SpriteEffects.None, 0f);
-					drawPosition += Spacing;
-					
-				}
-			}
+			drawPosition += Spacing;
 		}
 		
 		if (mouseHover != "") {
