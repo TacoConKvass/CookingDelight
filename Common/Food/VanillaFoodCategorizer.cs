@@ -277,7 +277,7 @@ public class VanillaFoodCategorizer : GlobalItem
 	}
 
 	public override void OnConsumeItem(Item item, Player player) {
-		if (item.type > ItemID.None && item.type < ItemID.Count) {
+		if (item.type > ItemID.None && item.type < ItemID.Count && ItemID.Sets.IsFood[item.type] == true) {
 			var foodPlayer = player.GetModPlayer<CDFoodPlayer>();
 
 			foreach (var values in VanillaFoodByCategory.Values) {
