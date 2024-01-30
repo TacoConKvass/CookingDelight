@@ -9,7 +9,7 @@ public class CDFoodPlayer : ModPlayer {
 		for (int index = 0; index < 7; index++) {
 			if (FoodTimers[index] > 0) {
 				FoodTimers[index]--;
-				break;
+				continue;
 			}
 
 			// Reset food bonus if timer == 0
@@ -31,7 +31,8 @@ public class CDFoodPlayer : ModPlayer {
 			Player.statLifeMax2 += 20 * FoodLevels[(int)FoodCategory.Vegetable];
 		}
 		if (FoodTimers[(int)FoodCategory.Sweet] > 0) {
-			Player.moveSpeed += 0.2f * FoodLevels[(int)FoodCategory.Sweet];
+			Player.maxRunSpeed += 0.4f * FoodLevels[(int)FoodCategory.Sweet];
+			Player.runAcceleration += 0.1f * FoodLevels[(int)FoodCategory.Sweet];
 		}
 		if (FoodTimers[(int)FoodCategory.Alcohol] > 0) {
 			Player.statDefense -= 2 * FoodLevels[(int)FoodCategory.Alcohol];
