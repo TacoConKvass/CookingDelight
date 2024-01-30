@@ -100,13 +100,13 @@ public abstract class FoodItem : ModItem {
 	}
 
 	public override void SaveData(TagCompound tag) {
-		var int_categories = Categories.Cast<int>().ToArray();
-		tag["Categories"] = int_categories.ToArray();
+		List<int> int_categories = Categories.Cast<int>().ToList();
+		tag["Categories"] = int_categories;
 		tag["BuffTime"] = BuffTime;
 	}
 
 	public override void LoadData(TagCompound tag) {
-		var int_categories = tag.Get<int[]>("Categories");
+		List<int> int_categories = tag.Get<List<int>>("Categories");
 		Categories = int_categories.Cast<FoodCategory>().ToList();
 		BuffTime = tag.Get<int>("BuffTime");
 	}
