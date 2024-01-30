@@ -16,8 +16,10 @@ FoodBuffDescriptions: {
 	Fruit: "[c/04e00b:Fruit {0}] - Provides life regen boost"
 	Vegetable: "[c/04e02d:Vegetable {0}] - Provides additional HP"
 	Sweet: "[c/04e0b0:Sweet {0}] - Provides percent movement speed boost"
-	Alcohol: "[c/ad04e0:Alcohol {0}] - Reduces defense by , provides percent damage boost and percent attack speed boost"
+	Alcohol: "[c/ad04e0:Alcohol {0}] - Reduces defense by, provides percent damage boost and percent attack speed boost"
 }
+
+TimeLeftDescription: "{0} seconds left"
 
 Items: {
 	MixFoodItem: {
