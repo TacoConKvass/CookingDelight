@@ -27,3 +27,9 @@ Items: {
 		Tooltip: ""
 	}
 }
+
+Tiles: {
+    CrockPot: {
+        DisplayName: Crock Pot
+    }
+}
