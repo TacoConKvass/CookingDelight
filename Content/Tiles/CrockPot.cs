@@ -7,6 +7,9 @@ using Terraria.ObjectData;
 namespace CookingDelight.Content.Tiles;
 
 public class CrockPot : ModTile {
+	public static int Width = 2;
+	public static int Height = 2;
+
 	public override void SetStaticDefaults() {
 		Main.tileFrameImportant[Type] = true;
 		Main.tileWaterDeath[Type] = false;
@@ -26,4 +29,9 @@ public class CrockPot : ModTile {
 	public override bool CanExplode(int i, int j) => false;
 
 	public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) => true;
+
+	public override void KillMultiTile(int i, int j, int frameX, int frameY) {
+		ModContent.GetInstance<CrockPotTE>().Kill(i, j);
+		base.KillMultiTile(i, j, frameX, frameY);
+	}
 }

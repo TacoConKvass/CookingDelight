@@ -26,10 +26,11 @@ Items: {
 		DisplayName: Mix Food Item
 		Tooltip: ""
 	}
+
+	CrockPotItem: {
+		DisplayName: Crock Pot
+		Tooltip: ""
+	}
 }
 
-Tiles: {
-    CrockPot: {
-        DisplayName: Crock Pot
-    }
-}
+Tiles.CrockPot.DisplayName: Crock Pot
