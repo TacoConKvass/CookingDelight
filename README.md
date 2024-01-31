@@ -10,3 +10,4 @@ This is a mod made purely for fun and to get some experience. I don't expect any
     - [ ] Food buffs
     - [ ] Mix Food Item
     - [ ] UI sprites
+    - [ ] Mod icon
