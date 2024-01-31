@@ -6,7 +6,7 @@ using Terraria.ObjectData;
 
 namespace CookingDelight.Content.Tiles;
 
-public class CrockPot : ModTile {
+public class Crockpot : ModTile {
 	public static int Width = 2;
 	public static int Height = 2;
 
@@ -19,7 +19,7 @@ public class CrockPot : ModTile {
 		TileObjectData.newTile.Origin = new Point16(1, 1);
 		TileObjectData.newTile.LavaDeath = false;
 		
-		ModTileEntity te_crockpot = ModContent.GetInstance<CrockPotTE>();
+		ModTileEntity te_crockpot = ModContent.GetInstance<CrockpotTE>();
 		TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook(te_crockpot.Hook_AfterPlacement, -1, 0, true);
 
 		TileObjectData.addTile(Type);
@@ -31,7 +31,7 @@ public class CrockPot : ModTile {
 	public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) => true;
 
 	public override void KillMultiTile(int i, int j, int frameX, int frameY) {
-		ModContent.GetInstance<CrockPotTE>().Kill(i, j);
+		ModContent.GetInstance<CrockpotTE>().Kill(i, j);
 		base.KillMultiTile(i, j, frameX, frameY);
 	}
 }

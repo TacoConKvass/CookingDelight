@@ -28,9 +28,9 @@ Items: {
 	}
 
 	CrockPotItem: {
-		DisplayName: Crock Pot
+		DisplayName: Crockpot
 		Tooltip: ""
 	}
 }
 
-Tiles.CrockPot.DisplayName: Crock Pot
+Tiles.CrockPot.DisplayName: Crockpot

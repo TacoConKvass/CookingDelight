@@ -2,9 +2,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace CookingDelight.Content.Tiles;
 
-public class CrockPotItem : ModItem {
+public class CrockpotItem : ModItem {
 	public override void SetDefaults() {
-		Item.DefaultToPlaceableTile(ModContent.TileType<CrockPot>(), 0);
+		Item.DefaultToPlaceableTile(ModContent.TileType<Crockpot>(), 0);
 
 		Item.width = 30;
 		Item.height = 40;
@@ -12,5 +12,5 @@ public class CrockPotItem : ModItem {
 		Item.value = Item.buyPrice(silver: 20);
 	}
 
-	public override string Texture => "CookingDelight/Content/Tiles/CrockPot";
+	public override string Texture => "CookingDelight/Content/Tiles/Crockpot";
 }
