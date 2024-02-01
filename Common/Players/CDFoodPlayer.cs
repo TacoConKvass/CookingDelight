@@ -2,11 +2,11 @@ namespace CookingDelight.Common.Players;
 
 public class CDFoodPlayer : ModPlayer {
 
-	public int[] FoodLevels = new int[7];
-	public int[] FoodTimers = new int[7];
+	public int[] FoodLevels = new int[6];
+	public int[] FoodTimers = new int[6];
 
 	public override void PreUpdate() {
-		for (int index = 0; index < 7; index++) {
+		for (int index = 0; index < 6; index++) {
 			if (FoodTimers[index] > 0) {
 				FoodTimers[index]--;
 				continue;

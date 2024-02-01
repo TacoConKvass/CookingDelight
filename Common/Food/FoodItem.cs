@@ -77,7 +77,8 @@ public abstract class FoodItem : ModItem {
 			if (!Categories.Contains(category)) {
 				continue;
 			}
-			string food_level = Math.Clamp(Categories.Where(element => element == category).Count(), 1, 10).ToRoman();
+			int level_cap = category == FoodCategory.Other ? 3 : 10;
+			string food_level = Math.Clamp(Categories.Where(element => element == category).Count(), 1, level_cap).ToRoman();
 			var line = new TooltipLine(Mod, "foodCategory", Language.GetTextValue($"Mods.CookingDelight.FoodCategories.{category}").FormatWith(food_level));
 			tooltips.Add(line);
 		}
@@ -87,10 +88,25 @@ public abstract class FoodItem : ModItem {
 		var foodPlayer = player.GetModPlayer<CDFoodPlayer>();
 
 		// Clear already applied buffs 
-		foodPlayer.FoodLevels = new int[7];
-		foodPlayer.FoodTimers = new int[7];	
+		foodPlayer.FoodLevels = new int[6];
+		foodPlayer.FoodTimers = new int[6];	
 
-		foreach (var category in Categories) { 	
+		foreach (var category in Categories) {
+			if (category == FoodCategory.Other) {
+				switch (Categories.Count(x => x == FoodCategory.Other)) {
+					case 1: 
+						player.AddBuff(BuffID.WellFed, BuffTime);
+						break;
+					case 2:
+						player.AddBuff(BuffID.WellFed2, BuffTime);
+						break;
+					default:
+						player.AddBuff(BuffID.WellFed3, BuffTime);
+						break;
+				}
+				continue;
+			}
+
 			if (foodPlayer.FoodLevels[(int)category] < maxLevel) {
 				foodPlayer.FoodLevels[(int)category]++;
 			}

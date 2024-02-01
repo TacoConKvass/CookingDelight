@@ -277,24 +277,36 @@ public class VanillaFoodCategorizer : GlobalItem
 	}
 
 	public override void OnConsumeItem(Item item, Player player) {
-		if (item.type > ItemID.None && item.type < ItemID.Count && ItemID.Sets.IsFood[item.type] == true) {
+		if (item.type > ItemID.None && item.type < ItemID.Count) {
+			if (!ItemID.Sets.IsFood[item.type]) {
+				return;
+			}
+
 			var foodPlayer = player.GetModPlayer<CDFoodPlayer>();
 
 			foreach (var values in VanillaFoodByCategory.Values) {
 				if (values.Contains(item.type)) {
 					// Clear already applied buffs 
-					foodPlayer.FoodLevels = new int[7];
-					foodPlayer.FoodTimers = new int[7];
+					foodPlayer.FoodLevels = new int[6];
+					foodPlayer.FoodTimers = new int[6];
 					break;
 				}
 			}
 
+			Main.LocalPlayer.ClearBuff(BuffID.WellFed);
+			Main.LocalPlayer.ClearBuff(BuffID.WellFed2);
+			Main.LocalPlayer.ClearBuff(BuffID.WellFed3);
+
 			foreach (var (category, value) in VanillaFoodByCategory) {
-				if (value.Contains(item.type)) {
+				if (value.Contains(item.type) && category != FoodCategory.Other) {
 					foodPlayer.FoodLevels[(int)category]++;
 					foodPlayer.FoodTimers[(int)category] = VanillaFoodBuffTime;
 					Main.NewText(foodPlayer.FoodLevels[(int)category]);
 				}
+			}
+
+			if (VanillaFoodByCategory[FoodCategory.Other].Contains(item.type)) {
+				Main.LocalPlayer.AddBuff(BuffID.WellFed, 18000);
 			}
 		}
 	}
