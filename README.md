@@ -5,6 +5,7 @@ In vanilla Terraria food items give 3 different buffs, which are the same but wi
 This is a mod made purely for fun and to get some experience. I don't expect anyone to find a use for it. Inspired by [Mindfull Eating mod for Minecraft](https://youtu.be/NN8Vgj4wrFw?si=eObRdqSU6uKlCD8y).
 
 ## TODO for first release
+- [x] `Other` FoodCategory rework 
 - [ ] Cooking UI and tile
 - [ ] Sprites :pain:
     - [ ] Food buffs
