@@ -1,3 +1,5 @@
+using CookingDelight.Common.Players;
+using Humanizer;
 using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.GameContent.ObjectInteractions;
@@ -34,5 +36,27 @@ public class Crockpot : ModTile
 	public override void KillMultiTile(int i, int j, int frameX, int frameY) {
 		ModContent.GetInstance<CrockpotTE>().Kill(i, j);
 		base.KillMultiTile(i, j, frameX, frameY);
+	}
+
+	public override bool RightClick(int i, int j) {
+		// There must be a better way
+		bool exists = TileEntity.ByPosition.TryGetValue(new Point16(i, j), out TileEntity te);
+		if (!exists) {
+			exists = TileEntity.ByPosition.TryGetValue(new Point16(i - 1, j), out TileEntity t2);
+			te = t2;
+		}
+		if (!exists) {
+			exists = TileEntity.ByPosition.TryGetValue(new Point16(i, j - 1), out TileEntity t3);
+			te = t3;
+		}
+		if (!exists) {
+			exists = TileEntity.ByPosition.TryGetValue(new Point16(i-1, j - 1), out TileEntity t4);
+			te = t4;
+		}
+
+		if (exists) {
+			Main.LocalPlayer.GetModPlayer<CDCookingPlayer>().CurrentCrockpotPosition = te.Position.ToWorldCoordinates();
+		}
+		return true;
 	}
 }
