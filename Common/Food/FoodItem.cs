@@ -11,8 +11,9 @@ namespace CookingDelight.Common;
 /// <summary>
 /// Abstract class describing a food item in a way that this mod intends.
 /// </summary>
-public abstract class FoodItem : ModItem {
-	
+public abstract class FoodItem : ModItem
+{
+
 	/// <summary>
 	/// List of FoodCategories this item belongs to. <br>
 	/// To raise the level of the effects, include the category multiple times.
@@ -54,7 +55,7 @@ public abstract class FoodItem : ModItem {
 					}
 				}
 			}
-			
+
 			// Modded item inheriting from FoodItem
 			else if (ModContent.GetModItem(ingredient_type) is FoodItem food_item_instance) {
 				foreach (var category in food_item_instance.Categories) {
@@ -89,12 +90,12 @@ public abstract class FoodItem : ModItem {
 
 		// Clear already applied buffs 
 		foodPlayer.FoodLevels = new int[6];
-		foodPlayer.FoodTimers = new int[6];	
+		foodPlayer.FoodTimers = new int[6];
 
 		foreach (var category in Categories) {
 			if (category == FoodCategory.Other) {
 				switch (Categories.Count(x => x == FoodCategory.Other)) {
-					case 1: 
+					case 1:
 						player.AddBuff(BuffID.WellFed, BuffTime);
 						break;
 					case 2:

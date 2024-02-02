@@ -6,7 +6,8 @@ using Terraria.ObjectData;
 
 namespace CookingDelight.Content.Tiles;
 
-public class Crockpot : ModTile {
+public class Crockpot : ModTile
+{
 	public static int Width = 2;
 	public static int Height = 2;
 
@@ -14,11 +15,11 @@ public class Crockpot : ModTile {
 		Main.tileFrameImportant[Type] = true;
 		Main.tileWaterDeath[Type] = false;
 		Main.tileLavaDeath[Type] = false;
-			
+
 		TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
 		TileObjectData.newTile.Origin = new Point16(1, 1);
 		TileObjectData.newTile.LavaDeath = false;
-		
+
 		ModTileEntity te_crockpot = ModContent.GetInstance<CrockpotTE>();
 		TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook(te_crockpot.Hook_AfterPlacement, -1, 0, true);
 

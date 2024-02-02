@@ -1,6 +1,7 @@
 namespace CookingDelight.Common.Players;
 
-public class CDFoodPlayer : ModPlayer {
+public class CDFoodPlayer : ModPlayer
+{
 
 	public int[] FoodLevels = new int[6];
 	public int[] FoodTimers = new int[6];
@@ -25,7 +26,7 @@ public class CDFoodPlayer : ModPlayer {
 			Player.GetDamage(DamageClass.Generic) += 0.1f * FoodLevels[(int)FoodCategory.Seafood];
 		}
 		if (FoodTimers[(int)FoodCategory.Fruit] > 0) {
-			Player.lifeRegen+= 2 * FoodLevels[(int)FoodCategory.Fruit];
+			Player.lifeRegen += 2 * FoodLevels[(int)FoodCategory.Fruit];
 		}
 		if (FoodTimers[(int)FoodCategory.Vegetable] > 0) {
 			Player.statLifeMax2 += 20 * FoodLevels[(int)FoodCategory.Vegetable];

@@ -23,11 +23,11 @@ TimeLeftDescription: "{0} seconds left"
 
 Items: {
 	MixFoodItem: {
-		DisplayName: Mix Food Item
+		DisplayName: Generic Dish
 		Tooltip: ""
 	}
 
-	CrockPotItem: {
+	CrockpotItem: {
 		DisplayName: Crockpot
 		Tooltip: ""
 	}

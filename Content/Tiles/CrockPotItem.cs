@@ -2,7 +2,8 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace CookingDelight.Content.Tiles;
 
-public class CrockpotItem : ModItem {
+public class CrockpotItem : ModItem
+{
 	public override void SetDefaults() {
 		Item.DefaultToPlaceableTile(ModContent.TileType<Crockpot>(), 0);
 

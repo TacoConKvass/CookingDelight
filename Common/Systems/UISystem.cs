@@ -1,22 +1,23 @@
 using CookingDelight.Common.Players;
 using Humanizer;
-using Microsoft.Xna.Framework; 
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.Localization;
 using Terraria.UI;
 
 namespace CookingDelight.Common.Systems;
 
-public class UISystem : ModSystem {
-	const string AssetPath = "CookingDelight/Common/UI";
+public class UISystem : ModSystem
+{
+	const string FoodBuffTexturePath = "CookingDelight/Common/UI";
 
 	public static Dictionary<int, string> foodBuffTextures = new Dictionary<int, string>() {
-		{ (int)FoodCategory.Meat, $"{AssetPath}/MeatBuff" },
-		{ (int)FoodCategory.Seafood, $"{AssetPath}/SeafoodBuff" },
-		{ (int)FoodCategory.Fruit, $"{AssetPath}/FruitBuff" },
-		{ (int)FoodCategory.Vegetable, $"{AssetPath}/VegetableBuff" },
-		{ (int)FoodCategory.Sweet, $"{AssetPath}/SweetBuff" },
-		{ (int)FoodCategory.Alcohol, $"{AssetPath}/AlcoholBuff" }
+		{ (int)FoodCategory.Meat, $"{FoodBuffTexturePath}/MeatBuff" },
+		{ (int)FoodCategory.Seafood, $"{FoodBuffTexturePath}/SeafoodBuff" },
+		{ (int)FoodCategory.Fruit, $"{FoodBuffTexturePath}/FruitBuff" },
+		{ (int)FoodCategory.Vegetable, $"{FoodBuffTexturePath}/VegetableBuff" },
+		{ (int)FoodCategory.Sweet, $"{FoodBuffTexturePath}/SweetBuff" },
+		{ (int)FoodCategory.Alcohol, $"{FoodBuffTexturePath}/AlcoholBuff" }
 	};
 
 	public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers) {

@@ -1,6 +1,7 @@
 namespace CookingDelight.Content.Tiles;
 
-public class CrockpotTE : ModTileEntity {
+public class CrockpotTE : ModTileEntity
+{
 	public override bool IsTileValidForEntity(int x, int y) {
 		Tile tile = Main.tile[x, y];
 		return tile.HasTile && tile.TileType == ModContent.TileType<Crockpot>() && tile.TileFrameX == 0 && tile.TileFrameY == 0;
