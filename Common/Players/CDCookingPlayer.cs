@@ -1,4 +1,5 @@
 using CookingDelight.Common.Systems;
+using CookingDelight.Common.UI;
 using Microsoft.Xna.Framework;
 
 namespace CookingDelight.Common.Players;
@@ -9,7 +10,16 @@ public class CDCookingPlayer : ModPlayer
 
 	public override void PostUpdate() {
 		if (CurrentCrockpotPosition != null) {
-			if (Main.LocalPlayer.position.Distance((Vector2)CurrentCrockpotPosition) > 160f) {
+			if (ModContent.GetInstance<UISystem>().userInterface.CurrentState == null) {
+				ModContent.GetInstance<UISystem>().ShowCookingUI();
+			}
+
+			if (Main.LocalPlayer.position.Distance((Vector2)CurrentCrockpotPosition) > 320f) {
+				ModContent.GetInstance<UISystem>().HideCookingUI();
+				CurrentCrockpotPosition = null;
+			}
+		} else {
+			if (ModContent.GetInstance<UISystem>().userInterface.CurrentState is CookingUI) {
 				ModContent.GetInstance<UISystem>().HideCookingUI();
 			}
 		}
