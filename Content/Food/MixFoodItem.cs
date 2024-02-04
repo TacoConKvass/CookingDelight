@@ -5,7 +5,7 @@ namespace CookingDelight.Content.Food;
 
 public class MixFoodItem : FoodItem
 {
-	private List<FoodCategory> p_categories = new List<FoodCategory>() { FoodCategory.Sweet, FoodCategory.Sweet, FoodCategory.Meat };
+	private List<FoodCategory> p_categories = new List<FoodCategory>() { FoodCategory.Sweet, FoodCategory.Sweet, FoodCategory.Meat, FoodCategory.Seafood, FoodCategory.Vegetable, FoodCategory.Vegetable};
 
 	public override List<FoodCategory> Categories { 
 		get => p_categories; 
@@ -29,6 +29,7 @@ public class MixFoodItem : FoodItem
 		Item.useTime = 30;
 
 		Item.buffType = BuffID.WellFed;
+		Item.buffTime = 1;
 	}
 
 	public override ModItem Clone(Item newEntity) {

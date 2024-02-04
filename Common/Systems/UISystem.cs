@@ -50,7 +50,7 @@ public class UISystem : ModSystem
 					}
 					return true;
 				},
-				InterfaceScaleType.UI
+				InterfaceScaleType.None
 			));
 		}
 	}
