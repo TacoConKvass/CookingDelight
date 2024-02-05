@@ -52,7 +52,7 @@ public class CookingUI : UIState
 	public override void Update(GameTime gameTime) {
 		base.Update(gameTime);
 		Vector2 activeCrockpotPosition = (Vector2)Main.LocalPlayer.GetModPlayer<CDCookingPlayer>().CurrentCrockpotPosition;
-		activeCrockpotPosition = (activeCrockpotPosition - Main.screenPosition) / Main.GameViewMatrix.Zoom.X;
+		activeCrockpotPosition = (activeCrockpotPosition - Main.screenPosition) * Main.GameViewMatrix.Zoom;
 		panel.Left.Set(activeCrockpotPosition.X - 84, 0f);
 		panel.Top.Set(activeCrockpotPosition.Y - 224, 0f);
 
