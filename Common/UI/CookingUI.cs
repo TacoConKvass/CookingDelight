@@ -14,10 +14,20 @@ public class CookingUI : UIState
 	public UIImageButton cookButton;
 	public List<UIItemSlotWrapper> ingredientSlots;
 
+	private int[] ingredientSlotsLeft = { 67, 0, 36, 96, 134 };
+	private int[] ingredientSlotsTop = { 0, 60, 134, 134, 60 };
+
 	public override void OnInitialize() {
 		panel = new UIPanel();
 		panel.Width.Set(192, 0);
 		panel.Height.Set(192, 0);
+		Append(panel);
+
+		cookButton = new UIImageButton(ModContent.Request<Texture2D>("CookingDelight/Common/UI/AlcoholBuff"));
+		cookButton.Width.Set(32, 0);
+		cookButton.Height.Set(32, 0);
+		cookButton.OnLeftClick += CookButton_LeftClick;
+		panel.Append(cookButton);
 
 		ingredientSlots = new List<UIItemSlotWrapper>() {
 			new UIItemSlotWrapper(scale: 0.65f) {
@@ -37,16 +47,12 @@ public class CookingUI : UIState
 			}
 		};
 		for (int index = 0; index < 5; index++) {
+			ingredientSlots[index].Left.Set(ingredientSlotsLeft[index], 0);
+			ingredientSlots[index].Top.Set(ingredientSlotsTop[index], 0);
+			ingredientSlots[index].Width.Set(52, 0);
+			ingredientSlots[index].Height.Set(52, 0);
 			panel.Append(ingredientSlots[index]);
 		}
-
-		cookButton = new UIImageButton(ModContent.Request<Texture2D>("CookingDelight/Common/UI/AlcoholBuff"));
-		cookButton.Width.Set(32, 0);
-		cookButton.Height.Set(32, 0);
-		cookButton.OnLeftClick += new MouseEvent(CookButton_LeftClick);
-		panel.Append(cookButton);
-
-		Append(panel);
 	}
 
 	public override void Update(GameTime gameTime) {
@@ -55,24 +61,8 @@ public class CookingUI : UIState
 		activeCrockpotPosition = (activeCrockpotPosition - Main.screenPosition) * Main.GameViewMatrix.Zoom;
 		panel.Left.Set(activeCrockpotPosition.X - 84, 0f);
 		panel.Top.Set(activeCrockpotPosition.Y - 224, 0f);
-
-		ingredientSlots[0].Left.Set(67, 0);
-		ingredientSlots[0].Top.Set(0, 0);
-		
-		ingredientSlots[1].Left.Set(0, 0);
-		ingredientSlots[1].Top.Set(60, 0);
-		
-		ingredientSlots[2].Left.Set(36, 0);
-		ingredientSlots[2].Top.Set(134, 0);
-		
-		ingredientSlots[3].Left.Set(96, 0);
-		ingredientSlots[3].Top.Set(134, 0);
-		
-		ingredientSlots[4].Left.Set(134, 0);
-		ingredientSlots[4].Top.Set(60, 0);
-
-		cookButton.Left.Set(67, 0);
-		cookButton.Top.Set(67, 0);
+		panel.Recalculate();
+		panel.RecalculateChildren();
 	}
 
 	public override void OnDeactivate() {
