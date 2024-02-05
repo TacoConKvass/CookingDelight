@@ -1,7 +1,7 @@
 using CookingDelight.Common.Players;
+using CookingDelight.Common.UI.Elements;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Steamworks;
 using Terraria.DataStructures;
 using Terraria.GameContent.UI.Elements;
 using Terraria.UI;
@@ -12,27 +12,27 @@ public class CookingUI : UIState
 {
 	public UIPanel panel;
 	public UIImageButton cookButton;
-	public List<ItemSlotWrapper> ingredientSlots;
+	public List<UIItemSlotWrapper> ingredientSlots;
 
 	public override void OnInitialize() {
 		panel = new UIPanel();
 		panel.Width.Set(192, 0);
 		panel.Height.Set(192, 0);
 
-		ingredientSlots = new List<ItemSlotWrapper>() {
-			new ItemSlotWrapper(scale: 0.65f) {
+		ingredientSlots = new List<UIItemSlotWrapper>() {
+			new UIItemSlotWrapper(scale: 0.65f) {
 				ValidItemFunc = item => IsValidInput(item)
 			},
-			new ItemSlotWrapper(scale: 0.65f) {
+			new UIItemSlotWrapper(scale: 0.65f) {
 				ValidItemFunc = item => IsValidInput(item)
 			},
-			new ItemSlotWrapper(scale: 0.65f) {
+			new UIItemSlotWrapper(scale: 0.65f) {
 				ValidItemFunc = item => IsValidInput(item)
 			},
-			new ItemSlotWrapper(scale: 0.65f) {
+			new UIItemSlotWrapper(scale: 0.65f) {
 				ValidItemFunc = item => IsValidInput(item)
 			},
-			new ItemSlotWrapper(scale: 0.65f) {
+			new UIItemSlotWrapper(scale: 0.65f) {
 				ValidItemFunc = item => IsValidInput(item)
 			}
 		};

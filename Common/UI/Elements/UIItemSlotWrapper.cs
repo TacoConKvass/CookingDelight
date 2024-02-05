@@ -1,19 +1,18 @@
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
 using Terraria.GameInput;
 using Terraria.UI;
 
-namespace CookingDelight.Common.UI;
+namespace CookingDelight.Common.UI.Elements;
 
-public class ItemSlotWrapper : UIElement
+public class UIItemSlotWrapper : UIElement
 {
 	internal Item Item;
 	public readonly int Context;
 	public readonly float Scale;
 	internal Func<Item, bool> ValidItemFunc;
 
-	public ItemSlotWrapper(int context = ItemSlot.Context.BankItem, float scale = 1f) {
+	public UIItemSlotWrapper(int context = ItemSlot.Context.BankItem, float scale = 1f) {
 		Context = context;
 		Scale = scale;
 		Item = new Item();
@@ -24,9 +23,9 @@ public class ItemSlotWrapper : UIElement
 	}
 
 	protected override void DrawSelf(SpriteBatch spriteBatch) {
-		float oldScale = Main.inventoryScale;
+		var oldScale = Main.inventoryScale;
 		Main.inventoryScale = Scale;
-		Rectangle rectangle = GetDimensions().ToRectangle();
+		var rectangle = GetDimensions().ToRectangle();
 
 		if (ContainsPoint(Main.MouseScreen) && !PlayerInput.IgnoreMouseInterface) {
 			Main.LocalPlayer.mouseInterface = true;
