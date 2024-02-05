@@ -1,5 +1,7 @@
 using CookingDelight.Common.Players;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Steamworks;
 using Terraria.DataStructures;
 using Terraria.GameContent.UI.Elements;
 using Terraria.UI;
@@ -9,6 +11,7 @@ namespace CookingDelight.Common.UI;
 public class CookingUI : UIState
 {
 	public UIPanel panel;
+	public UIImageButton cookButton;
 	public List<ItemSlotWrapper> ingredientSlots;
 
 	public override void OnInitialize() {
@@ -33,18 +36,23 @@ public class CookingUI : UIState
 				ValidItemFunc = item => IsValidInput(item)
 			}
 		};
-
 		for (int index = 0; index < 5; index++) {
 			panel.Append(ingredientSlots[index]);
 		}
-		
+
+		cookButton = new UIImageButton(ModContent.Request<Texture2D>("CookingDelight/Common/UI/AlcoholBuff"));
+		cookButton.Width.Set(32, 0);
+		cookButton.Height.Set(32, 0);
+		cookButton.OnLeftClick += new MouseEvent(CookButton_LeftClick);
+		panel.Append(cookButton);
+
 		Append(panel);
 	}
 
 	public override void Update(GameTime gameTime) {
 		base.Update(gameTime);
 		Vector2 activeCrockpotPosition = (Vector2)Main.LocalPlayer.GetModPlayer<CDCookingPlayer>().CurrentCrockpotPosition;
-		activeCrockpotPosition = activeCrockpotPosition - Main.screenPosition;
+		activeCrockpotPosition = (activeCrockpotPosition - Main.screenPosition) / Main.GameViewMatrix.Zoom.X;
 		panel.Left.Set(activeCrockpotPosition.X - 84, 0f);
 		panel.Top.Set(activeCrockpotPosition.Y - 224, 0f);
 
@@ -62,6 +70,9 @@ public class CookingUI : UIState
 		
 		ingredientSlots[4].Left.Set(134, 0);
 		ingredientSlots[4].Top.Set(60, 0);
+
+		cookButton.Left.Set(67, 0);
+		cookButton.Top.Set(67, 0);
 	}
 
 	public override void OnDeactivate() {
@@ -69,6 +80,17 @@ public class CookingUI : UIState
 			Main.LocalPlayer.QuickSpawnItem(new EntitySource_Misc("Closed cooking UI"), ingredientSlots[i].Item, ingredientSlots[i].Item.stack);
 			ingredientSlots[i].Item.TurnToAir();
 		}
+	}
+
+	protected override void DrawSelf(SpriteBatch spriteBatch) {
+		base.DrawSelf(spriteBatch);
+		if (panel.ContainsPoint(Main.MouseScreen)) {
+			Main.LocalPlayer.mouseInterface = true;
+		}
+	}
+
+	public void CookButton_LeftClick(UIMouseEvent evt, UIElement listeningElement) {
+		Main.NewText("Cookerd");
 	}
 
 	public bool IsValidInput(Item item) {

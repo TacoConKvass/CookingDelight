@@ -18,18 +18,15 @@ public class MixFoodItem : FoodItem
 		get => p_buffTime;
 		set => p_buffTime = value;
 	}
-
 	public override void SetDefaults() {
+		base.SetDefaults();
 		Item.Size = new Vector2(16, 16);
 		Item.maxStack = 9999;
 		Item.consumable = true;
-
+	
 		Item.useStyle = ItemUseStyleID.EatFood;
 		Item.useAnimation = 30;
 		Item.useTime = 30;
-
-		Item.buffType = BuffID.WellFed;
-		Item.buffTime = 1;
 	}
 
 	public override ModItem Clone(Item newEntity) {

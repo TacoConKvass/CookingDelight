@@ -36,6 +36,14 @@ public abstract class FoodItem : ModItem
 		Main.RegisterItemAnimation(Type, new DrawAnimationVertical(int.MaxValue, 3));
 	}
 
+	/// <summary>
+	///  Make sure to call <code>base.SetDefaults()</code> or add <code>Item.buffType = BuffID.WellFed;<br>Item.buffTime = 1;</code> yourself;
+	/// </summary>
+	public override void SetDefaults() {
+		Item.buffType = BuffID.WellFed;
+		Item.buffTime = 1;
+	}
+
 	public override void OnSpawn(IEntitySource source) {
 		if (source is not ItemSource_Cooking) {
 			return;
@@ -74,6 +82,12 @@ public abstract class FoodItem : ModItem
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips) {
+		foreach (var line in tooltips) {
+			if (line.Text == "0 seconds duration") {
+				line.Hide();
+			}
+		}
+
 		foreach (FoodCategory category in Enum.GetValues(typeof(FoodCategory))) {
 			if (!Categories.Contains(category)) {
 				continue;
