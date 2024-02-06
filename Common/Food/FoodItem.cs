@@ -74,7 +74,11 @@ public abstract class FoodItem : ModItem
 	}
 
 	public override bool CanStack(Item source) {
-		if ((source.ModItem as FoodItem).Categories.Except(Categories).Count() == 0) {
+		var sourceCategories = (source.ModItem as FoodItem).Categories.ToList();
+		sourceCategories.Sort();
+		var cCategories = Categories.ToList();
+		cCategories.Sort();
+		if (sourceCategories.SequenceEqual(cCategories) && source.type == Type) {
 			return true;
 		}
 
