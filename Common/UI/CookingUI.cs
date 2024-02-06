@@ -1,5 +1,7 @@
+using CookingDelight.Common.EntitySources;
 using CookingDelight.Common.Players;
 using CookingDelight.Common.UI.Elements;
+using CookingDelight.Content.Food;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.DataStructures;
@@ -84,7 +86,22 @@ public class CookingUI : UIState
 	}
 
 	public void CookButton_LeftClick(UIMouseEvent evt, UIElement listeningElement) {
-		Main.NewText("Cookerd");
+		List<int> ingredient_types = new List<int>() { };
+		Main.NewText(ingredientSlots[1].Item.type);
+		for (int i = 0; i< 5; i++) {
+			ingredient_types.Add(ingredientSlots[i].Item.type);
+			if (ingredientSlots[i].Item.type == 0) {
+				return;
+			}
+		}
+
+		ingredientSlots[0].Item.stack--;
+		ingredientSlots[1].Item.stack--;
+		ingredientSlots[2].Item.stack--;
+		ingredientSlots[3].Item.stack--;
+		ingredientSlots[4].Item.stack--;
+
+		Main.LocalPlayer.QuickSpawnItem(new ItemSource_Cooking(ingredient_types), ModContent.ItemType<MixFoodItem>());
 	}
 
 	public bool IsValidInput(Item item) {
