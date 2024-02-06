@@ -24,4 +24,8 @@ public class CDCookingPlayer : ModPlayer
 			}
 		}
 	}
+
+	public override void OnEnterWorld() {
+		CurrentCrockpotPosition = null;
+	}
 }
