@@ -58,7 +58,7 @@ public abstract class FoodItem : ModItem
 
 				//Iterate through the VanillaFoodByCategory dict
 				foreach (var (category, list) in VanillaFoodCategorizer.VanillaFoodByCategory) {
-					if (list.Contains(ingredient_type)) {
+					if (list.Contains(ingredient_type) && category != FoodCategory.Spice) {
 						Categories.Add(category);
 					}
 				}
@@ -67,7 +67,9 @@ public abstract class FoodItem : ModItem
 			// Modded item inheriting from FoodItem
 			else if (ModContent.GetModItem(ingredient_type) is FoodItem food_item_instance) {
 				foreach (var category in food_item_instance.Categories) {
-					Categories.Add(category);
+					if (category != FoodCategory.Spice) {
+						Categories.Add(category);
+					}
 				}
 			}
 		}
