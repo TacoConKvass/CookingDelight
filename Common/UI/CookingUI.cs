@@ -21,11 +21,18 @@ public class CookingUI : UIState
 		panel = new UIPanel();
 		panel.Width.Set(192, 0);
 		panel.Height.Set(192, 0);
+		panel.OnUpdate += e => {
+			if (e.IsMouseHovering) {
+				Main.instance.MouseText("HOVERING!");
+			}
+		};
 		Append(panel);
 
 		cookButton = new UIImageButton(ModContent.Request<Texture2D>("CookingDelight/Common/UI/AlcoholBuff"));
 		cookButton.Width.Set(32, 0);
 		cookButton.Height.Set(32, 0);
+		cookButton.Left.Set(67, 0);
+		cookButton.Top.Set(67, 0);
 		cookButton.OnLeftClick += CookButton_LeftClick;
 		panel.Append(cookButton);
 
@@ -49,8 +56,8 @@ public class CookingUI : UIState
 		for (int index = 0; index < 5; index++) {
 			ingredientSlots[index].Left.Set(ingredientSlotsLeft[index], 0);
 			ingredientSlots[index].Top.Set(ingredientSlotsTop[index], 0);
-			ingredientSlots[index].Width.Set(52, 0);
-			ingredientSlots[index].Height.Set(52, 0);
+			ingredientSlots[index].Width.Set(52 * 0.65f, 0);
+			ingredientSlots[index].Height.Set(52 * 0.65f, 0);
 			panel.Append(ingredientSlots[index]);
 		}
 	}
@@ -59,23 +66,15 @@ public class CookingUI : UIState
 		base.Update(gameTime);
 		Vector2 activeCrockpotPosition = (Vector2)Main.LocalPlayer.GetModPlayer<CDCookingPlayer>().CurrentCrockpotPosition;
 		activeCrockpotPosition = (activeCrockpotPosition - Main.screenPosition) * Main.GameViewMatrix.Zoom;
-		panel.Left.Set(activeCrockpotPosition.X - 84, 0f);
-		panel.Top.Set(activeCrockpotPosition.Y - 224, 0f);
+		panel.Left.Set(activeCrockpotPosition.X - 84, 0);
+		panel.Top.Set(activeCrockpotPosition.Y - 224, 0);
 		panel.Recalculate();
-		panel.RecalculateChildren();
 	}
 
 	public override void OnDeactivate() {
 		for (int i = 0; i < 5; i ++) {
 			Main.LocalPlayer.QuickSpawnItem(new EntitySource_Misc("Closed cooking UI"), ingredientSlots[i].Item, ingredientSlots[i].Item.stack);
 			ingredientSlots[i].Item.TurnToAir();
-		}
-	}
-
-	protected override void DrawSelf(SpriteBatch spriteBatch) {
-		base.DrawSelf(spriteBatch);
-		if (panel.ContainsPoint(Main.MouseScreen)) {
-			Main.LocalPlayer.mouseInterface = true;
 		}
 	}
 
