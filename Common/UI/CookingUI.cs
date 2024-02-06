@@ -23,6 +23,7 @@ public class CookingUI : UIState
 		panel.Height.Set(192, 0);
 		panel.OnUpdate += e => {
 			if (e.IsMouseHovering) {
+				Main.LocalPlayer.mouseInterface = true;
 				Main.instance.MouseText("HOVERING!");
 			}
 		};
@@ -73,7 +74,11 @@ public class CookingUI : UIState
 
 	public override void OnDeactivate() {
 		for (int i = 0; i < 5; i ++) {
-			Main.LocalPlayer.QuickSpawnItem(new EntitySource_Misc("Closed cooking UI"), ingredientSlots[i].Item, ingredientSlots[i].Item.stack);
+			var item = ingredientSlots[i].Item;
+			if (item.ModItem is FoodItem) {
+				(item.ModItem as FoodItem).Categories = (ingredientSlots[i].Item.ModItem as FoodItem).Categories;
+			}
+			Main.LocalPlayer.QuickSpawnItem(new EntitySource_Misc("Closed cooking UI"), item, ingredientSlots[i].Item.stack);
 			ingredientSlots[i].Item.TurnToAir();
 		}
 	}
