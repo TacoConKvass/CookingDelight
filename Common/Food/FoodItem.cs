@@ -1,5 +1,6 @@
 using CookingDelight.Common.EntitySources;
 using CookingDelight.Common.Players;
+using CookingDelight.Content.Food;
 using Humanizer;
 using System.Linq;
 using Terraria.DataStructures;
@@ -85,6 +86,13 @@ public abstract class FoodItem : ModItem
 		}
 
 		return false;
+	}
+
+	public override ModItem Clone(Item newEntity) {
+		FoodItem clone = (FoodItem)base.Clone(newEntity);
+		clone.Categories = Categories;
+		clone.BuffTime = BuffTime;
+		return clone;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips) {

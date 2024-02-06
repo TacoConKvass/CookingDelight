@@ -28,11 +28,4 @@ public class MixFoodItem : FoodItem
 		Item.useAnimation = 30;
 		Item.useTime = 30;
 	}
-
-	public override ModItem Clone(Item newEntity) {
-		MixFoodItem clone = (MixFoodItem)base.Clone(newEntity);
-		clone.Categories = Categories;
-		clone.BuffTime = BuffTime;
-		return clone;
-	}
 }
