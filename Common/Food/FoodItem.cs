@@ -97,7 +97,7 @@ public abstract class FoodItem : ModItem
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips) {
 		foreach (var line in tooltips) {
-			if (line.Text == "0 seconds duration") {
+			if (line.Name == "BuffTime" && line.Mod == "Terraria") {
 				line.Hide();
 			}
 		}
