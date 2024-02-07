@@ -6,7 +6,7 @@ This is a mod made purely for fun and to get some experience. I don't expect any
 
 ## TODO for first release
 - [x] `Other` FoodCategory rework 
-- [ ] Cooking UI and tile
+- [x] Cooking UI and tile
 - [ ] Sprites :pain:
     - [ ] Food buffs
     - [ ] Mix Food Item
