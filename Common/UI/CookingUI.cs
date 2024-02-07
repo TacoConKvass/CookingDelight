@@ -4,6 +4,7 @@ using CookingDelight.Common.UI.Elements;
 using CookingDelight.Content.Food;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Linq;
 using Terraria.DataStructures;
 using Terraria.GameContent.UI.Elements;
 using Terraria.UI;
@@ -26,7 +27,6 @@ public class CookingUI : UIState
 		panel.OnUpdate += e => {
 			if (e.IsMouseHovering) {
 				Main.LocalPlayer.mouseInterface = true;
-				Main.instance.MouseText("HOVERING!");
 			}
 		};
 		Append(panel);
@@ -69,7 +69,6 @@ public class CookingUI : UIState
 	public override void Update(GameTime gameTime) {
 		base.Update(gameTime);
 		Vector2 activeCrockpotPosition = Vector2.Transform((Vector2)Main.LocalPlayer.GetModPlayer<CDCookingPlayer>().CurrentCrockpotPosition - Main.screenPosition, Main.GameViewMatrix.ZoomMatrix) / Main.UIScale;
-		//activeCrockpotPosition = (activeCrockpotPosition - Main.screenPosition);
 		panel.Left.Set(activeCrockpotPosition.X - 84, 0);
 		panel.Top.Set(activeCrockpotPosition.Y - 224, 0);
 		Recalculate();
@@ -87,30 +86,27 @@ public class CookingUI : UIState
 	}
 
 	public override void Draw(SpriteBatch spriteBatch) {
-		panel.Draw(spriteBatch);
-		cookButton.Draw(spriteBatch);
-		foreach (var itemSlot in ingredientSlots) {
-			itemSlot.Draw(spriteBatch);
-		}
+		base.Draw(spriteBatch);
 	}
 
 	public void CookButton_LeftClick(UIMouseEvent evt, UIElement listeningElement) {
 		List<Item> ingredient_types = new List<Item>() { };
-		Main.NewText(ingredientSlots[1].Item.type);
 		for (int i = 0; i< 5; i++) {
 			ingredient_types.Add(ingredientSlots[i].Item);
-			if (ingredientSlots[i].Item.type == ItemID.None) {
-				return;
-			}
 		}
 
-		ingredientSlots[0].Item.stack--;
-		ingredientSlots[1].Item.stack--;
-		ingredientSlots[2].Item.stack--;
-		ingredientSlots[3].Item.stack--;
-		ingredientSlots[4].Item.stack--;
+		if (ingredient_types.Where(x => x.type == ItemID.None).Count() > 3) {
+			return;
+		}
 
 		Main.LocalPlayer.QuickSpawnItem(new ItemSource_Cooking(ingredient_types), ModContent.ItemType<MixFoodItem>());
+		
+		for (int i = 0; i < 5; i++) {
+			ingredientSlots[i].Item.stack--;
+			if (ingredientSlots[i].Item.stack <= 0) {
+				ingredientSlots[i].Item.TurnToAir();
+			}
+		}
 	}
 
 	public bool IsValidInput(Item item) {
