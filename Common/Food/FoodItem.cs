@@ -52,21 +52,21 @@ public abstract class FoodItem : ModItem
 
 		Categories.Clear();
 		var ingredients = (source as ItemSource_Cooking).ingredients;
-		foreach (int ingredient_type in ingredients) {
+		foreach (Item ingredient in ingredients) {
 
 			// Vanilla item
-			if (ingredient_type > ItemID.None && ingredient_type < ItemID.Count) {
+			if (ingredient.type > ItemID.None && ingredient.type < ItemID.Count) {
 
 				//Iterate through the VanillaFoodByCategory dict
 				foreach (var (category, list) in VanillaFoodCategorizer.VanillaFoodByCategory) {
-					if (list.Contains(ingredient_type) && category != FoodCategory.Spice) {
+					if (list.Contains(ingredient.type) && category != FoodCategory.Spice) {
 						Categories.Add(category);
 					}
 				}
 			}
 
 			// Modded item inheriting from FoodItem
-			else if (ModContent.GetModItem(ingredient_type) is FoodItem food_item_instance) {
+			else if (ingredient.ModItem is FoodItem food_item_instance) {
 				foreach (var category in food_item_instance.Categories) {
 					if (category != FoodCategory.Spice) {
 						Categories.Add(category);

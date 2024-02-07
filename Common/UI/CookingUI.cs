@@ -56,6 +56,7 @@ public class CookingUI : UIState
 				ValidItemFunc = item => IsValidInput(item)
 			}
 		};
+		
 		for (int index = 0; index < 5; index++) {
 			ingredientSlots[index].Left.Set(ingredientSlotsLeft[index], 0);
 			ingredientSlots[index].Top.Set(ingredientSlotsTop[index], 0);
@@ -71,7 +72,7 @@ public class CookingUI : UIState
 		activeCrockpotPosition = (activeCrockpotPosition - Main.screenPosition);
 		panel.Left.Set(activeCrockpotPosition.X - 84, 0);
 		panel.Top.Set(activeCrockpotPosition.Y - 224, 0);
-		panel.Recalculate();
+		Recalculate();
 	}
 
 	public override void OnDeactivate() {
@@ -86,11 +87,11 @@ public class CookingUI : UIState
 	}
 
 	public void CookButton_LeftClick(UIMouseEvent evt, UIElement listeningElement) {
-		List<int> ingredient_types = new List<int>() { };
+		List<Item> ingredient_types = new List<Item>() { };
 		Main.NewText(ingredientSlots[1].Item.type);
 		for (int i = 0; i< 5; i++) {
-			ingredient_types.Add(ingredientSlots[i].Item.type);
-			if (ingredientSlots[i].Item.type == 0) {
+			ingredient_types.Add(ingredientSlots[i].Item);
+			if (ingredientSlots[i].Item.type == ItemID.None) {
 				return;
 			}
 		}
