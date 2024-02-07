@@ -68,8 +68,8 @@ public class CookingUI : UIState
 
 	public override void Update(GameTime gameTime) {
 		base.Update(gameTime);
-		Vector2 activeCrockpotPosition = (Vector2)Main.LocalPlayer.GetModPlayer<CDCookingPlayer>().CurrentCrockpotPosition;
-		activeCrockpotPosition = (activeCrockpotPosition - Main.screenPosition);
+		Vector2 activeCrockpotPosition = Vector2.Transform((Vector2)Main.LocalPlayer.GetModPlayer<CDCookingPlayer>().CurrentCrockpotPosition - Main.screenPosition, Main.GameViewMatrix.ZoomMatrix) / Main.UIScale;
+		//activeCrockpotPosition = (activeCrockpotPosition - Main.screenPosition);
 		panel.Left.Set(activeCrockpotPosition.X - 84, 0);
 		panel.Top.Set(activeCrockpotPosition.Y - 224, 0);
 		Recalculate();
@@ -83,6 +83,14 @@ public class CookingUI : UIState
 			}
 			Main.LocalPlayer.QuickSpawnItem(new EntitySource_Misc("Closed cooking UI"), item, ingredientSlots[i].Item.stack);
 			ingredientSlots[i].Item.TurnToAir();
+		}
+	}
+
+	public override void Draw(SpriteBatch spriteBatch) {
+		panel.Draw(spriteBatch);
+		cookButton.Draw(spriteBatch);
+		foreach (var itemSlot in ingredientSlots) {
+			itemSlot.Draw(spriteBatch);
 		}
 	}
 
