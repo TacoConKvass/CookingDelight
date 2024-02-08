@@ -23,7 +23,7 @@ TimeLeftDescription: "{0} seconds left"
 
 Items: {
 	MixFoodItem: {
-		DisplayName: Generic Dish
+		DisplayName: Mix Dish
 		Tooltip: ""
 	}
 
