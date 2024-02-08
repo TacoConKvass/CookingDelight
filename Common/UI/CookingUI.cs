@@ -117,9 +117,6 @@ public class CookingUI : UIState
 				ingredientSlots[i].Item.TurnToAir();
 			}
 		}
-
-		str_ingredient_types = "";
-		int_types = new List<int>() {};
 	}
 
 	public bool IsValidInput(Item item) {
