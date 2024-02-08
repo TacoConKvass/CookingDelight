@@ -1,5 +1,6 @@
 using CookingDelight.Common.EntitySources;
 using CookingDelight.Common.Players;
+using CookingDelight.Common.Systems;
 using CookingDelight.Common.UI.Elements;
 using CookingDelight.Content.Food;
 using Microsoft.Xna.Framework;
@@ -91,15 +92,24 @@ public class CookingUI : UIState
 
 	public void CookButton_LeftClick(UIMouseEvent evt, UIElement listeningElement) {
 		List<Item> ingredient_types = new List<Item>() { };
+		List<int> int_types = new List<int>() { };
 		for (int i = 0; i< 5; i++) {
+			if (ingredientSlots[i].Item.type == ItemID.None) {
+				continue;
+			}
 			ingredient_types.Add(ingredientSlots[i].Item);
+			int_types.Add(ingredientSlots[i].Item.type);
 		}
 
-		if (ingredient_types.Where(x => x.type == ItemID.None).Count() > 3) {
+		if (ingredient_types.Count < 2) {
 			return;
 		}
 
-		Main.LocalPlayer.QuickSpawnItem(new ItemSource_Cooking(ingredient_types), ModContent.ItemType<MixFoodItem>());
+		string str_ingredient_types = string.Join(" ", int_types.Sorted());
+
+		int resultType = RecipeRegister.CookBook.Keys.Contains(str_ingredient_types) ? RecipeRegister.CookBook[str_ingredient_types] : ModContent.ItemType<MixFoodItem>();
+
+		Main.LocalPlayer.QuickSpawnItem(new ItemSource_Cooking(ingredient_types), resultType);
 		
 		for (int i = 0; i < 5; i++) {
 			ingredientSlots[i].Item.stack--;
@@ -107,6 +117,9 @@ public class CookingUI : UIState
 				ingredientSlots[i].Item.TurnToAir();
 			}
 		}
+
+		str_ingredient_types = "";
+		int_types = new List<int>() {};
 	}
 
 	public bool IsValidInput(Item item) {
