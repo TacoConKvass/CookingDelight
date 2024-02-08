@@ -296,7 +296,7 @@ public class VanillaFoodCategorizer : GlobalItem
 			Main.LocalPlayer.ClearBuff(BuffID.WellFed3);
 
 			foreach (var (category, value) in VanillaFoodByCategory) {
-				if (value.Contains(item.type) && category != FoodCategory.Other) {
+				if (value.Contains(item.type) && category != FoodCategory.Other && category != FoodCategory.Spice) {
 					foodPlayer.FoodLevels[(int)category]++;
 					foodPlayer.FoodTimers[(int)category] = VanillaFoodBuffTime;
 					Main.NewText(foodPlayer.FoodLevels[(int)category]);

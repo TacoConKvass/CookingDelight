@@ -121,6 +121,10 @@ public abstract class FoodItem : ModItem
 		foodPlayer.FoodTimers = new int[6];
 
 		foreach (var category in Categories) {
+			if (category == FoodCategory.Spice) {
+				continue;
+			}
+
 			if (category == FoodCategory.Other) {
 				switch (Categories.Count(x => x == FoodCategory.Other)) {
 					case 1:
