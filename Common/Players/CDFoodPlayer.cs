@@ -19,26 +19,33 @@ public class CDFoodPlayer : ModPlayer
 	}
 
 	public override void PostUpdateBuffs() {
-		if (FoodTimers[(int)FoodCategory.Meat] > 0) {
-			Player.endurance += 0.05f * FoodLevels[(int)FoodCategory.Meat];
+		if (FoodLevels[(int)FoodCategory.Meat] > 0) {
+			Player.endurance += 0.025f * FoodLevels[(int)FoodCategory.Meat];
 		}
-		if (FoodTimers[(int)FoodCategory.Seafood] > 0) {
-			Player.GetDamage(DamageClass.Generic) += 0.1f * FoodLevels[(int)FoodCategory.Seafood];
+
+		if (FoodLevels[(int)FoodCategory.Seafood] > 0) {
+			Player.GetDamage(DamageClass.Generic) += 0.05f * FoodLevels[(int)FoodCategory.Seafood];
 		}
-		if (FoodTimers[(int)FoodCategory.Fruit] > 0) {
+
+		if (FoodLevels[(int)FoodCategory.Fruit] > 0) {
 			Player.lifeRegen += 2 * FoodLevels[(int)FoodCategory.Fruit];
 		}
-		if (FoodTimers[(int)FoodCategory.Vegetable] > 0) {
-			Player.statLifeMax2 += 20 * FoodLevels[(int)FoodCategory.Vegetable];
+
+		if (FoodLevels[(int)FoodCategory.Vegetable] > 0) {
+			Player.statLifeMax2 += 10 * FoodLevels[(int)FoodCategory.Vegetable];
 		}
-		if (FoodTimers[(int)FoodCategory.Sweet] > 0) {
-			Player.maxRunSpeed += 0.4f * FoodLevels[(int)FoodCategory.Sweet];
+
+		if (FoodLevels[(int)FoodCategory.Alcohol] > 0) {
+			Player.statDefense -= 1 * FoodLevels[(int)FoodCategory.Alcohol];
+			Player.GetDamage(DamageClass.Generic) += 0.02f * FoodLevels[(int)FoodCategory.Alcohol];
+			Player.GetAttackSpeed(DamageClass.Generic) += 0.03f * FoodLevels[(int)FoodCategory.Alcohol];
+		}
+	}
+
+	public override void PostUpdateRunSpeeds() {
+		if (FoodLevels[(int)FoodCategory.Sweet] > 0) {
+			Player.accRunSpeed += 0.3f * FoodLevels[(int)FoodCategory.Sweet];
 			Player.runAcceleration += 0.1f * FoodLevels[(int)FoodCategory.Sweet];
-		}
-		if (FoodTimers[(int)FoodCategory.Alcohol] > 0) {
-			Player.statDefense -= 2 * FoodLevels[(int)FoodCategory.Alcohol];
-			Player.GetDamage(DamageClass.Generic) += 0.15f * FoodLevels[(int)FoodCategory.Alcohol];
-			Player.GetAttackSpeed(DamageClass.Generic) += 0.1f * FoodLevels[(int)FoodCategory.Alcohol];
-		}
+		};
 	}
 }

@@ -12,7 +12,7 @@ public class MixFoodItem : FoodItem
 		set => p_categories = value;
 	}
 
-	private int p_buffTime = 600;
+	private int p_buffTime = 3.Minutes();
 
 	public override int BuffTime {
 		get => p_buffTime;

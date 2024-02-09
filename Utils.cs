@@ -6,4 +6,13 @@ public static class Utils
 		list.Sort();
 		return list;
 	}
+
+	public static int Seconds(this int time) {
+		return (int)time * 60;
+	}
+
+	public static int Minutes(this int time) {
+		return time * 3600;
+	}
+
 }

@@ -7,7 +7,7 @@ public class VanillaFoodCategorizer : GlobalItem
 
 	public static Dictionary<FoodCategory, List<int>> VanillaFoodByCategory = new Dictionary<FoodCategory, List<int>>();
 
-	public static int VanillaFoodBuffTime = 300;
+	public static int VanillaFoodBuffTime = 3.Minutes();
 
 	public override void Unload() {
 		VanillaFoodByCategory = null;

@@ -11,12 +11,12 @@ FoodCategories: {
 }
 
 FoodBuffDescriptions: {
-	Meat: "[c/BF2015:Meat {0}] - Provides percent damage reduction"
-	Seafood: "[c/157696:Seafood {0}] - Provides percent damage boost"
-	Fruit: "[c/04e00b:Fruit {0}] - Provides life regen boost"
-	Vegetable: "[c/04e02d:Vegetable {0}] - Provides additional HP"
-	Sweet: "[c/04e0b0:Sweet {0}] - Provides percent movement speed boost"
-	Alcohol: "[c/ad04e0:Alcohol {0}] - Reduces defense by, provides percent damage boost and percent attack speed boost"
+	Meat: "[c/BF2015:Meat {0}] - Provides +2.5% damage reduction per level"
+	Seafood: "[c/157696:Seafood {0}] - Provides +5% damage per level"
+	Fruit: "[c/04e00b:Fruit {0}] - Provides +1 life regen per level"
+	Vegetable: "[c/04e02d:Vegetable {0}] - Provides additional 10 HP per level"
+	Sweet: "[c/04e0b0:Sweet {0}] - Provides +1.5mph movement speed per level"
+	Alcohol: "[c/ad04e0:Alcohol {0}] - Reduces defense by 1, provides +2% damage and +3% attack speed per level"
 }
 
 TimeLeftDescription: "{0} seconds left"
