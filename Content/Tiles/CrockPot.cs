@@ -20,6 +20,8 @@ public class Crockpot : ModTile
 
 		TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
 		TileObjectData.newTile.Origin = new Point16(1, 1);
+		TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 };
+		TileObjectData.newTile.StyleHorizontal = true;
 		TileObjectData.newTile.LavaDeath = false;
 		TileObjectData.addTile(Type);
 

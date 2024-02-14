@@ -13,5 +13,5 @@ public class CrockpotItem : ModItem
 		Item.value = Item.buyPrice(silver: 20);
 	}
 
-	public override string Texture => "CookingDelight/Content/Tiles/Crockpot";
+	public override string Texture => "CookingDelight/Content/Tiles/CrockpotItem";
 }

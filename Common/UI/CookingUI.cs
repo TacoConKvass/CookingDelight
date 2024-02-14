@@ -32,7 +32,7 @@ public class CookingUI : UIState
 		};
 		Append(panel);
 
-		cookButton = new UIImageButton(ModContent.Request<Texture2D>("CookingDelight/Common/UI/AlcoholBuff"));
+		cookButton = new UIImageButton(ModContent.Request<Texture2D>("CookingDelight/Assets/UI/AlcoholBuff"));
 		cookButton.Width.Set(32, 0);
 		cookButton.Height.Set(32, 0);
 		cookButton.Left.Set(67, 0);

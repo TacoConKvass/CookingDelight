@@ -10,7 +10,7 @@ namespace CookingDelight.Common.Systems;
 
 public class UISystem : ModSystem
 {
-	const string FoodBuffTexturePath = "CookingDelight/Common/UI";
+	const string FoodBuffTexturePath = "CookingDelight/Assets/UI";
 
 	public UserInterface userInterface;
 	public CookingUI cookingUI;
