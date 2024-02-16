@@ -14,4 +14,11 @@ public class CrockpotItem : ModItem
 	}
 
 	public override string Texture => "CookingDelight/Content/Tiles/CrockpotItem";
+
+	public override void AddRecipes() {
+		CreateRecipe()
+			.AddRecipeGroup(nameof(ItemID.IronBar), 10)
+			.AddTile(TileID.Anvils)
+			.Register();
+	}
 }

@@ -32,7 +32,10 @@ Items: {
 
 	CrockpotItem: {
 		DisplayName: Crockpot
-		Tooltip: ""
+		Tooltip: '''
+		Used for cooking.
+		Right click the tile to open UI.
+		'''
 	}
 }
 
