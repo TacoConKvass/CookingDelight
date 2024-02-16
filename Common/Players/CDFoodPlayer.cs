@@ -1,3 +1,5 @@
+using Terraria.ModLoader.IO;
+
 namespace CookingDelight.Common.Players;
 
 public class CDFoodPlayer : ModPlayer
@@ -47,5 +49,15 @@ public class CDFoodPlayer : ModPlayer
 			Player.accRunSpeed += 0.3f * FoodLevels[(int)FoodCategory.Sweet];
 			Player.runAcceleration += 0.1f * FoodLevels[(int)FoodCategory.Sweet];
 		};
+	}
+
+	public override void SaveData(TagCompound tag) {
+		tag["FoodLevels"] = FoodLevels;
+		tag["FoodTimers"] = FoodTimers;
+	}
+
+	public override void LoadData(TagCompound tag) {
+		FoodLevels = tag.Get<int[]>("FoodLevels");
+		FoodTimers = tag.Get<int[]>("FoodTimers");
 	}
 }
