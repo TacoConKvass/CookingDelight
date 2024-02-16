@@ -77,7 +77,7 @@ public class UISystem : ModSystem
 
 	public void DrawFoodBuffUI(SpriteBatch spriteBatch) {
 		Main.LocalPlayer.TryGetModPlayer<CDFoodPlayer>(out CDFoodPlayer foodPlayer);
-		Vector2 offset = new Vector2(0, 0);
+		Vector2 offset = !Main.playerInventory ? new Vector2(0, 0) : new Vector2(100, 0);
 		Rectangle mouserect = new Rectangle((int)Main.MouseScreen.X, (int)Main.MouseScreen.Y, 8, 8);
 		string mousetext = "";
 		for (int i = 0; i < 6; i++) {
