@@ -4,4 +4,14 @@ In vanilla Terraria food items give 3 different buffs, which are the same but wi
 
 This is a mod made purely for fun and to get some experience. I don't expect anyone to find a use for it. Inspired by [Mindfull Eating mod for Minecraft](https://youtu.be/NN8Vgj4wrFw?si=eObRdqSU6uKlCD8y).
 
-Huge thanks to Stormy Tuna, Michaelsoftman, Lusttrill, Possibly Blu3morous, Direwolf, Mirsario, ColorOfCoincidence, Actias and The Possum for all the help and constructive criticism.
+Huge thanks to
+- Stormy Tuna,
+- Michaelsoftman,
+- Lusttrill,
+- Possibly Blu3morous,
+- Direwolf,
+- Mirsario,
+- ColorOfCoincidence,
+- Actias
+- and The Possum
+for all the help and constructive criticism.
