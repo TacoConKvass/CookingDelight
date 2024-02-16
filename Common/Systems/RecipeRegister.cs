@@ -6,7 +6,7 @@ public class RecipeRegister : ModSystem
 
 	public override void PostSetupContent() {
 		CookBook = new Dictionary<string, int>() {
-			{ string.Join(" ", new List<int> { ItemID.Squirrel, ItemID.Squirrel }.Sorted()), ItemID.GrilledSquirrel },
+			//{ string.Join(" ", new List<int> { ItemID.Squirrel, ItemID.Squirrel }.Sorted()), ItemID.GrilledSquirrel },
 		};
 	}
 
