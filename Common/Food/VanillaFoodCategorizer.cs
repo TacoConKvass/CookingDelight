@@ -276,7 +276,7 @@ public class VanillaFoodCategorizer : GlobalItem
 
 	public override void OnConsumeItem(Item item, Player player) {
 		if (item.type > ItemID.None && item.type < ItemID.Count) {
-			if (!ItemID.Sets.IsFood[item.type]) {
+			if (!ItemID.Sets.IsFood[item.type] && !item.potion) {
 				return;
 			}
 
@@ -299,7 +299,6 @@ public class VanillaFoodCategorizer : GlobalItem
 				if (value.Contains(item.type) && category != FoodCategory.Other && category != FoodCategory.Spice) {
 					foodPlayer.FoodLevels[(int)category]++;
 					foodPlayer.FoodTimers[(int)category] = VanillaFoodBuffTime;
-					Main.NewText(foodPlayer.FoodLevels[(int)category]);
 				}
 			}
 
