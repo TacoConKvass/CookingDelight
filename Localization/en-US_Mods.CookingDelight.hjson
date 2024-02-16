@@ -19,7 +19,8 @@ FoodBuffDescriptions: {
 	Alcohol: "[c/ad04e0:Alcohol {0}] - Reduces defense by 1, provides +2% damage and +3% attack speed per level"
 }
 
-TimeLeftDescription: "{0} seconds left"
+SecondsLeftDescription: "{0} seconds left"
+MinutesLeftDescription: "{0} minutes left"
 
 Items: {
 	MixFoodItem: {

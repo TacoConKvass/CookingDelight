@@ -85,9 +85,9 @@ public class UISystem : ModSystem
 				Rectangle buffrect = new Rectangle(480 + (int)offset.X, 30, 32, 32);
 				spriteBatch.Draw(ModContent.Request<Texture2D>(foodBuffTextures[i]).Value, new Vector2(480, 30) + offset, Color.White);
 				if (buffrect.Intersects(mouserect)) {
-					mousetext = Language.GetTextValue($"Mods.CookingDelight.FoodBuffDescriptions.{(FoodCategory)i}").FormatWith(foodPlayer.FoodLevels[i].ToRoman())
-					+ "\n"
-					+ Language.GetTextValue("Mods.CookingDelight.TimeLeftDescription").FormatWith(foodPlayer.FoodTimers[i] / 60);
+					mousetext = Language.GetTextValue($"Mods.CookingDelight.FoodBuffDescriptions.{(FoodCategory)i}").FormatWith(foodPlayer.FoodLevels[i].ToRoman());
+					mousetext += "\n";
+					mousetext += foodPlayer.FoodTimers[i] > 60.Seconds() ? Language.GetTextValue("Mods.CookingDelight.MinutesLeftDescription").FormatWith(foodPlayer.FoodTimers[i] / 3600) : Language.GetTextValue("Mods.CookingDelight.SecondsLeftDescription").FormatWith(foodPlayer.FoodTimers[i] / 60);
 				}
 				offset += new Vector2(37, 0);
 			}
