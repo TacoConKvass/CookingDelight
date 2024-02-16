@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System.Linq;
 using Terraria.DataStructures;
 using Terraria.GameContent.UI.Elements;
+using Terraria.Localization;
 using Terraria.UI;
 
 namespace CookingDelight.Common.UI;
@@ -15,7 +16,8 @@ namespace CookingDelight.Common.UI;
 public class CookingUI : UIState
 {
 	public UIPanel panel;
-	public UIImageButton cookButton;
+	public UIPanel cookButton;
+	public UIText cookButtonText;
 	public List<UIItemSlotWrapper> ingredientSlots;
 
 	private int[] ingredientSlotsLeft = { 67, 0, 36, 96, 134 };
@@ -32,13 +34,19 @@ public class CookingUI : UIState
 		};
 		Append(panel);
 
-		cookButton = new UIImageButton(ModContent.Request<Texture2D>("CookingDelight/Assets/UI/AlcoholBuff"));
-		cookButton.Width.Set(32, 0);
+		cookButton = new UIPanel();
+		cookButton.Width.Set(64, 0);
 		cookButton.Height.Set(32, 0);
-		cookButton.Left.Set(67, 0);
+		cookButton.Left.Set(51, 0);
 		cookButton.Top.Set(67, 0);
 		cookButton.OnLeftClick += CookButton_LeftClick;
 		panel.Append(cookButton);
+
+		var text = Language.GetText("Mods.CookingDelight.CookButtonText");
+		cookButtonText = new UIText(text);
+		cookButtonText.VAlign = 0.5f;
+		cookButtonText.HAlign = 0.5f;
+		cookButton.Append(cookButtonText);
 
 		ingredientSlots = new List<UIItemSlotWrapper>() {
 			new UIItemSlotWrapper(scale: 0.65f) {
