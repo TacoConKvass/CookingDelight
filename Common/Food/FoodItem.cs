@@ -37,14 +37,6 @@ public abstract class FoodItem : ModItem
 		Main.RegisterItemAnimation(Type, new DrawAnimationVertical(int.MaxValue, 3));
 	}
 
-	/// <summary>
-	///  Make sure to call <code>base.SetDefaults()</code> or add <code>Item.buffType = BuffID.WellFed;<br>Item.buffTime = 1;</code> yourself;
-	/// </summary>
-	public override void SetDefaults() {
-		Item.buffType = BuffID.WellFed;
-		Item.buffTime = 1;
-	}
-
 	public override void OnSpawn(IEntitySource source) {
 		if (source is not ItemSource_Cooking) {
 			return;
@@ -113,7 +105,7 @@ public abstract class FoodItem : ModItem
 		}
 	}
 
-	public override void OnConsumeItem(Player player) {
+	public override bool? UseItem(Player player) {
 		var foodPlayer = player.GetModPlayer<CDFoodPlayer>();
 
 		// Clear already applied buffs 
@@ -146,6 +138,7 @@ public abstract class FoodItem : ModItem
 
 			foodPlayer.FoodTimers[(int)category] = BuffTime;
 		}
+		return true;
 	}
 
 	public override void SaveData(TagCompound tag) {
