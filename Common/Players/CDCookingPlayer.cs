@@ -26,6 +26,7 @@ public class CDCookingPlayer : ModPlayer
 	}
 
 	public override void OnEnterWorld() {
+		ModContent.GetInstance<UISystem>().HideCookingUI();
 		CurrentCrockpotPosition = null;
 	}
 }
