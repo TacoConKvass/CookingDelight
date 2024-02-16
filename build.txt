@@ -3,3 +3,4 @@ author = TacoConKvass
 version = 1.0.0.0
 includeSource = true
 homepage = https://github.com/TacoConKvass/CookingDelight
+buildIgnore = .git\*, .vs\*, bin\*, obj\*, README.md
