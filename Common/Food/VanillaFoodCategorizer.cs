@@ -303,7 +303,7 @@ public class VanillaFoodCategorizer : GlobalItem
 			}
 
 			if (VanillaFoodByCategory[FoodCategory.Other].Contains(item.type)) {
-				Main.LocalPlayer.AddBuff(BuffID.WellFed, 18000);
+				Main.LocalPlayer.AddBuff(BuffID.WellFed, VanillaFoodBuffTime);
 			}
 		}
 	}

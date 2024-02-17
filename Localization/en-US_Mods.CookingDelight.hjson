@@ -20,6 +20,7 @@ FoodBuffDescriptions: {
 }
 
 CookButtonText: Cook
+Cookable: Can be cooked at the Crockpot [i:CookingDelight/CrockpotItem]
 SecondsLeftDescription: "{0} seconds left"
 MinutesLeftDescription: "{0} minutes left"
 MinutesDuration: "{0} minutes duration"
