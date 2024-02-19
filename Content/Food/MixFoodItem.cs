@@ -1,22 +1,18 @@
-using Microsoft.Xna.Framework;
-
 namespace CookingDelight.Content.Food;
 
-public class MixFoodItem : FoodItem
-{
-	private List<FoodCategory> p_categories = new List<FoodCategory>() { FoodCategory.Sweet, FoodCategory.Meat, FoodCategory.Vegetable, FoodCategory.Seafood, FoodCategory.Vegetable, FoodCategory.Fruit };
+public class MixFoodItem : FoodItem {
+	public override List<FoodCategory> Categories { get; set; } = new List<FoodCategory>() { 
+		FoodCategory.Meat, 
+		FoodCategory.Seafood,
+		FoodCategory.Fruit,
+		FoodCategory.Vegetable, 
+		FoodCategory.Sweet,
+		FoodCategory.Alcohol, 
+		FoodCategory.Other 
+	};
 
-	public override List<FoodCategory> Categories { 
-		get => p_categories; 
-		set => p_categories = value;
-	}
 
-	private int p_buffTime = 3.Minutes();
-
-	public override int BuffTime {
-		get => p_buffTime;
-		set => p_buffTime = value;
-	}
+	public override int BuffTime { get; set; } = 3.Minutes();
 
 	public override void SetDefaults() {
 		base.SetDefaults();
