@@ -1,6 +1,5 @@
 using CookingDelight.Common.EntitySources;
 using CookingDelight.Common.Players;
-using CookingDelight.Content.Food;
 using Humanizer;
 using System.Linq;
 using Terraria.DataStructures;

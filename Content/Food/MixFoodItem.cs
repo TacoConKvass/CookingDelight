@@ -1,4 +1,3 @@
-using CookingDelight.Common;
 using Microsoft.Xna.Framework;
 
 namespace CookingDelight.Content.Food;
