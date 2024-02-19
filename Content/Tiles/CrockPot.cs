@@ -1,6 +1,4 @@
 using CookingDelight.Common.Players;
-using Humanizer;
-using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.GameContent.ObjectInteractions;
 using Terraria.Localization;

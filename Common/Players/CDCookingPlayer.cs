@@ -1,6 +1,5 @@
 using CookingDelight.Common.Systems;
 using CookingDelight.Common.UI;
-using Microsoft.Xna.Framework;
 
 namespace CookingDelight.Common.Players;
 

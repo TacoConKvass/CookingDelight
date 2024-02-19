@@ -3,8 +3,6 @@ using CookingDelight.Common.Players;
 using CookingDelight.Common.Systems;
 using CookingDelight.Common.UI.Elements;
 using CookingDelight.Content.Food;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using System.Linq;
 using Terraria.DataStructures;
 using Terraria.GameContent.UI.Elements;

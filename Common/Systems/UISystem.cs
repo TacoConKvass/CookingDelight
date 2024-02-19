@@ -1,8 +1,6 @@
 using CookingDelight.Common.Players;
 using CookingDelight.Common.UI;
 using Humanizer;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.Localization;
 using Terraria.UI;
 
