@@ -1,3 +1,10 @@
-v1.0.0.1
-- Fixed typo in stormytuna's name
-- Added tooltip for vanilla food items -> "Can be cooked at the Crockpot"
+v1.0.1.0
+Content changes
+- Added new items
+    - Breakfast
+    - Stormytuna
+API Changes
+- New way of declaring recipes
+- New method: IsGenericFoodItem
+    - Indicates that the item behaves like the Mix Dish
+- New extension methods
