@@ -257,6 +257,7 @@ public class VanillaFoodCategorizer : GlobalItem
 			ItemID.Fireblossom,
 			ItemID.Moonglow,
 			ItemID.Shiverthorn,
+			ItemID.SpicyPepper,
 			ItemID.StarAnise,
 			ItemID.Waterleaf
 		});
