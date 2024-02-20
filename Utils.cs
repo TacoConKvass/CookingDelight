@@ -6,7 +6,7 @@ public static class Utils
 	/// </summary>
 	/// <param name="list">The list you want to sort</param>
 	/// <returns>A sorted list.</returns>
-	public static List<int> Sorted(this List<int> list) {
+	public static List<T> Sorted<T>(this List<T> list) {
 		list.Sort();
 		return list;
 	}
@@ -16,7 +16,7 @@ public static class Utils
 	/// <param name="list">The list you want to join</param>
 	/// <param name="separator">The set of characters you want to insert in between list elements</param>
 	/// <returns>A <see langword="string"/> joining all elements in the list.</returns>
-	public static string Join(this List<int> list, string separator = " ") {
+	public static string Join<T>(this List<T> list, string separator = " ") {
 		return string.Join(separator, list);
 	}
 
