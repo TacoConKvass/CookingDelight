@@ -13,7 +13,7 @@ public abstract class FoodItem : ModItem
 {
 
 	/// <summary>
-	/// List of FoodCategories this item belongs to. <br>
+	/// List of FoodCategories this item belongs to. <br></br>
 	/// To raise the level of the effects, include the category multiple times.
 	/// </summary>
 	public abstract List<FoodCategory> Categories { get; set; }

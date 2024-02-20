@@ -113,7 +113,7 @@ public class CookingUI : UIState
 			return;
 		}
 
-		string str_ingredient_types = string.Join(" ", int_types.Sorted());
+		string str_ingredient_types = int_types.Sorted().Join();
 
 		int resultType = RecipeRegister.CookBook.ContainsKey(str_ingredient_types) ? RecipeRegister.CookBook[str_ingredient_types] : ModContent.ItemType<MixFoodItem>();
 
