@@ -2,7 +2,7 @@ namespace CookingDelight.Content.Food;
 
 public class MixFoodItem : FoodItem
 {
-	public override List<int> Recipe { get; } = new List<int>() { };
+	public override List<int> Recipe => new List<int>() { };
 
 	public override List<FoodCategory> Categories { get; set; } = new List<FoodCategory>() { 
 		FoodCategory.Meat, 
