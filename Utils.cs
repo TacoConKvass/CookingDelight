@@ -33,5 +33,22 @@ public static class Utils
 	public static int Minutes(this int time) {
 		return time * 3600;
 	}
+}
 
+// Taken from https://www.codeproject.com/Questions/5162240/Order-a-list-of-list-in-Csharp
+public sealed class ListComparer<T> : IComparer<IReadOnlyList<T>> where T : IComparable
+{
+	public int Compare(IReadOnlyList<T> left, IReadOnlyList<T> right) {
+		if (left is null) return right is null ? 0 : -1;
+		if (right is null) return 1;
+
+		var innerComparer = Comparer<T>.Default;
+		int count = Math.Min(left.Count, right.Count);
+		for (int index = 0; index < count; index++) {
+			int result = innerComparer.Compare(left[index], right[index]);
+			if (result != 0) return result;
+		}
+
+		return left.Count.CompareTo(right.Count);
+	}
 }

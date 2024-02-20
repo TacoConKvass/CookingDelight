@@ -1,7 +1,3 @@
-using CookingDelight;
-using CookingDelight.Content.Food;
-using System.Collections.Specialized;
-
 namespace CookingDelight.Common.Systems;
 
 public class RecipeRegister : ModSystem
@@ -14,7 +10,7 @@ public class RecipeRegister : ModSystem
 	/// <summary>
 	/// Contains lists of requirements for generic food cooking.
 	/// </summary>
-	public static SortedDictionary<List<int>, int> GenericFoodRequirements = new SortedDictionary<List<int>, int>();
+	public static SortedDictionary<List<int>, int> GenericFoodRequirements = new SortedDictionary<List<int>, int>(new ListComparer<int>());
 
 	public override void Unload() {
 		CookBook = null;

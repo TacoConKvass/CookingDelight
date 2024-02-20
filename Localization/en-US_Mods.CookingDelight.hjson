@@ -53,6 +53,11 @@ Items: {
 			[c/67b349:Thanks for all the help Tuna-san!]
 			'''
 	}
+
+	TallBorger: {
+		DisplayName: Tall Borger
+		Tooltip: ""
+	}
 }
 
 Tiles.CrockPot.DisplayName: Crockpot
