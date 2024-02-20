@@ -102,7 +102,7 @@ public abstract class FoodItem : ModItem
 				continue;
 			}
 			int level_cap = category == FoodCategory.Other ? 3 : 10;
-			string food_level = Math.Clamp(Categories.Where(element => element == category).Count(), 1, level_cap).ToRoman();
+			string food_level = Math.Clamp(Categories.AmountOf(category), 1, level_cap).ToRoman();
 			var line = new TooltipLine(Mod, "foodCategory", Language.GetTextValue($"Mods.CookingDelight.FoodCategories.{category}").FormatWith(food_level));
 			tooltips.Add(line);
 		}

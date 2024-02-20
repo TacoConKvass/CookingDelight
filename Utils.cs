@@ -1,3 +1,5 @@
+using System.Linq;
+
 namespace CookingDelight;
 
 public static class Utils 
@@ -18,6 +20,10 @@ public static class Utils
 	/// <returns>A <see langword="string"/> joining all elements in the list.</returns>
 	public static string Join<T>(this List<T> list, string separator = " ") {
 		return string.Join(separator, list);
+	}
+
+	public static int AmountOf<T>(this List<T> list, T searchedItem) {
+		return list.Where(x => x.Equals(searchedItem)).Count();
 	}
 
 	public static int Seconds(this int time) {
