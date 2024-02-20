@@ -128,19 +128,19 @@ public class CookingUI : UIState
 	}
 
 	public bool IsValidInput(Item item) {
-		bool vanillaFoodItemNotSpice = false;
-		bool allowedModFoodItem = item.ModItem is FoodItem && !(item.ModItem as FoodItem).Categories.Contains(FoodCategory.Spice) && (item.ModItem as FoodItem).Categories.Count <= 5;
+		bool vanillaFoodItem = false;
+		bool allowedModFoodItem = item.ModItem is FoodItem && (item.ModItem as FoodItem).Categories.Count <= 5;
 		foreach (FoodCategory foodCategory in Enum.GetValues(typeof(FoodCategory))) {
 			if (VanillaFoodCategorizer.VanillaFoodByCategory[foodCategory].Contains(item.type)) {
-				vanillaFoodItemNotSpice = true;
+				vanillaFoodItem = true;
 				break;
 			}
 		}
 
-		if (VanillaFoodCategorizer.VanillaFoodByCategory[FoodCategory.Spice].Contains(item.type)) {
-			vanillaFoodItemNotSpice = false;
+		if (VanillaFoodCategorizer.VanillaFoodByCategory[FoodCategory.Spice].Contains(item.type) && item.type != ItemID.SpicyPepper) {
+			vanillaFoodItem = false;
 		}
 
-		return item.IsAir || vanillaFoodItemNotSpice || allowedModFoodItem;
+		return item.IsAir || vanillaFoodItem || allowedModFoodItem;
 	}
 }
