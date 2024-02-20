@@ -42,12 +42,12 @@ Items: {
 
 	Breakfast: {
 		DisplayName: Breakfast
-		Tooltip: "A great way to start your day."
+		Tooltip: A great way to start your day.
 	}
 
 	Stormytuna: {
 		DisplayName: Stormytuna
-		Tooltip: 
+		Tooltip:
 			'''
 			This fish sure is fishy...
 			[c/67b349:Thanks for all the help Tuna-san!]
