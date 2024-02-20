@@ -120,7 +120,7 @@ public class CookingUI : UIState
 		if (RecipeRegister.CookBook.ContainsKey(str_ingredient_types)) {
 			resultType = RecipeRegister.CookBook[str_ingredient_types];
 		} else {
-			foreach (var key in RecipeRegister.GenericFoodRequirements.Keys) {
+			foreach (var key in RecipeRegister.GenericFoodRequirements.Keys.Reverse()) {
 				if (key.All(element => int_types.AmountOf(element) >= key.AmountOf(element))) {
 					resultType = RecipeRegister.GenericFoodRequirements[key];
 					break;

@@ -1,29 +1,23 @@
+using CookingDelight;
 using CookingDelight.Content.Food;
+using System.Collections.Specialized;
 
 namespace CookingDelight.Common.Systems;
 
 public class RecipeRegister : ModSystem
 {
-	public static Dictionary<string, int> CookBook;
+	/// <summary>
+	/// Contains recipes for non-generic food items.
+	/// </summary>
+	public static Dictionary<string, int> CookBook = new Dictionary<string, int>();
 
 	/// <summary>
-	/// Contains lists of requirements for generic food cooking. <br></br>
-	/// Make sure it's sorted by the list lenght.
+	/// Contains lists of requirements for generic food cooking.
 	/// </summary>
-	public static Dictionary<List<int>, int> GenericFoodRequirements;
-
-	public override void PostSetupContent() {
-		CookBook = new Dictionary<string, int>() {
-			{ new List<int> { ItemID.FriedEgg, ItemID.Bacon }.Sorted().Join(), ModContent.ItemType<Breakfast>() },
-			{ new List<int> { ItemID.Tuna, ItemID.Cloudfish }.Sorted().Join(), ModContent.ItemType<Stormytuna>() }
-		};
-
-		GenericFoodRequirements = new Dictionary<List<int>, int>() {
-			{ new List<int> { }, ModContent.ItemType<MixFoodItem>() }
-		};
-	}
+	public static SortedDictionary<List<int>, int> GenericFoodRequirements = new SortedDictionary<List<int>, int>();
 
 	public override void Unload() {
 		CookBook = null;
+		GenericFoodRequirements = null;
 	}
 }

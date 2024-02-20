@@ -2,6 +2,8 @@ namespace CookingDelight.Content.Food;
 
 public class Breakfast : FoodItem 
 {
+	public override List<int> Recipe { get; } = new List<int>() { ItemID.FriedEgg, ItemID.Bacon };
+
 	public override List<FoodCategory> Categories { get; set; } = new List<FoodCategory>() { FoodCategory.Meat, FoodCategory.Other, FoodCategory.Other };
 
 	public override int BuffTime { get; set; } = 3.Minutes();

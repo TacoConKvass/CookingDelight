@@ -1,8 +1,10 @@
 using CookingDelight.Common.Players;
+using CookingDelight.Common.Systems;
 using Humanizer;
 using System.Linq;
 using Terraria.Localization;
 using Terraria.ModLoader.IO;
+using Terraria.Social.Base;
 
 namespace CookingDelight.Common;
 
@@ -32,6 +34,11 @@ public abstract class FoodItem : ModItem
 		Item.ResearchUnlockCount = 10;
 		ItemID.Sets.IsFood[Type] = true;
 		Main.RegisterItemAnimation(Type, new DrawAnimationVertical(int.MaxValue, 3));
+		if (IsGenericFoodItem()) {
+			RecipeRegister.GenericFoodRequirements.Add(Recipe, Type);
+		} else {
+			RecipeRegister.CookBook.Add(Recipe.Sorted().Join(), Type);
+		}
 	}
 
 	/// <summary>
@@ -39,6 +46,12 @@ public abstract class FoodItem : ModItem
 	/// If set to <see langword="false"/> then it will always be spawned with the set <see cref="Categories"/>.
 	/// </summary>
 	public virtual bool IsGenericFoodItem() => false;
+
+	/// <summary>
+	/// Defines a list of items types that need to be inputted into the Crockpot to make the item. <br></br>
+	/// If <see cref="IsGenericFoodItem"/> returns <see langword="true"/> this list represents at least which items have to be present to make this item.
+	/// </summary>
+	public abstract List<int> Recipe { get; }
 
 	public override void OnSpawn(IEntitySource source) {
 		if (source is not ItemSource_Cooking || !IsGenericFoodItem()) {
@@ -114,6 +127,9 @@ public abstract class FoodItem : ModItem
 		// Clear already applied buffs 
 		foodPlayer.FoodLevels = new int[6];
 		foodPlayer.FoodTimers = new int[6];
+		Main.LocalPlayer.ClearBuff(BuffID.WellFed);
+		Main.LocalPlayer.ClearBuff(BuffID.WellFed2);
+		Main.LocalPlayer.ClearBuff(BuffID.WellFed3);
 
 		foreach (var category in Categories) {
 			if (category == FoodCategory.Spice) {
