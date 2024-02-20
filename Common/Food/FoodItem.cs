@@ -35,7 +35,7 @@ public abstract class FoodItem : ModItem
 		ItemID.Sets.IsFood[Type] = true;
 		Main.RegisterItemAnimation(Type, new DrawAnimationVertical(int.MaxValue, 3));
 		if (IsGenericFoodItem()) {
-			RecipeRegister.GenericFoodRequirements.Add(Recipe, Type);
+			RecipeRegister.GenericFoodRequirements.Add(Recipe.Sorted(), Type);
 		} else {
 			RecipeRegister.CookBook.Add(Recipe.Sorted().Join(), Type);
 		}
