@@ -115,7 +115,19 @@ public class CookingUI : UIState
 
 		string str_ingredient_types = int_types.Sorted().Join();
 
-		int resultType = RecipeRegister.CookBook.ContainsKey(str_ingredient_types) ? RecipeRegister.CookBook[str_ingredient_types] : ModContent.ItemType<MixFoodItem>();
+		int resultType = ModContent.ItemType<MixFoodItem>();
+
+		if (RecipeRegister.CookBook.ContainsKey(str_ingredient_types)) {
+			resultType = RecipeRegister.CookBook[str_ingredient_types];
+		} else {
+			foreach (var key in RecipeRegister.GenericFoodRequirements.Keys) {
+				if (key.All(element => int_types.AmountOf(element) >= key.AmountOf(element))) {
+					resultType = RecipeRegister.GenericFoodRequirements[key];
+					break;
+				}
+			}
+		}
+
 
 		Main.LocalPlayer.QuickSpawnItem(new ItemSource_Cooking(ingredient_types), resultType);
 		
