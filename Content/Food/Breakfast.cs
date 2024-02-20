@@ -20,11 +20,6 @@ public class Breakfast : FoodItem
 	}
 
 	public override void OnSpawn(IEntitySource source) {
-		if (source is not ItemSource_Cooking) {
-			return;
-		}
-
-		base.OnSpawn(source);
-		Categories.Add(FoodCategory.Meat);
+		return;
 	}
 }
