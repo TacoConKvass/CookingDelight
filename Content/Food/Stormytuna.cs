@@ -9,7 +9,6 @@ public class Stormytuna : FoodItem
 	public override int BuffTime { get; set; } = 4.Minutes();
 
 	public override void SetDefaults() {
-		base.SetDefaults();
 		Item.Size = new Vector2(16, 16);
 		Item.maxStack = 9999;
 		Item.consumable = true;
@@ -17,9 +16,5 @@ public class Stormytuna : FoodItem
 		Item.useStyle = ItemUseStyleID.EatFood;
 		Item.useAnimation = 30;
 		Item.useTime = 30;
-	}
-
-	public override void OnSpawn(IEntitySource source) {
-		return;
 	}
 }

@@ -19,12 +19,12 @@ public abstract class FoodItem : ModItem
 	public abstract List<FoodCategory> Categories { get; set; }
 
 	/// <summary>
-	/// How long will the effects acquired from this food last
+	/// How long will the effects acquired from this food last.
 	/// </summary>
 	public abstract int BuffTime { get; set; }
 
 	/// <summary>
-	/// Max level of the effects
+	/// Max level of the effects.
 	/// </summary>
 	private readonly int maxLevel = 10;
 
@@ -34,8 +34,14 @@ public abstract class FoodItem : ModItem
 		Main.RegisterItemAnimation(Type, new DrawAnimationVertical(int.MaxValue, 3));
 	}
 
+	/// <summary>
+	/// Defines wether the items <see cref="Categories"/> are dynamically constructed in OnSpawn. <br></br>
+	/// If set to <see langword="false"/> then it will always be spawned with the set <see cref="Categories"/>.
+	/// </summary>
+	public virtual bool IsGenericFoodItem() => false;
+
 	public override void OnSpawn(IEntitySource source) {
-		if (source is not ItemSource_Cooking) {
+		if (source is not ItemSource_Cooking || !IsGenericFoodItem()) {
 			return;
 		}
 
