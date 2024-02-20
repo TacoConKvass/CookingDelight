@@ -39,6 +39,20 @@ Items: {
 			Right click the tile to open UI.
 			'''
 	}
+
+	Breakfast: {
+		DisplayName: Breakfast
+		Tooltip: "A great way to start your day."
+	}
+
+	Stormytuna: {
+		DisplayName: Stormytuna
+		Tooltip: 
+			'''
+			This fish sure is fishy...
+			[c/67b349:Thanks for all the help Tuna-san!]
+			'''
+	}
 }
 
 Tiles.CrockPot.DisplayName: Crockpot
