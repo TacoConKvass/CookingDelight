@@ -1,6 +1,4 @@
 #nullable enable
-using Terraria.DataStructures;
-
 namespace CookingDelight.Common.EntitySources;
 
 public class ItemSource_Cooking : IEntitySource
