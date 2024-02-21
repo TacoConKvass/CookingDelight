@@ -28,7 +28,7 @@ MinutesDuration: "{0} minutes duration"
 Items: {
 	MixFoodItem: {
 		DisplayName: Mix Dish
-		Tooltip: ""
+		Tooltip: "I don't know what you put there, but it's edible"
 	}
 
 	CrockpotItem: {
@@ -66,6 +66,16 @@ Items: {
 			Chonky birb.
 			[c/c72ee6:Thanks for all the help Michael!]
 			'''
+	}
+
+    RibBorger: {
+		DisplayName: McRib
+		Tooltip: ""
+	}
+
+    Terranade: {
+		DisplayName: Terranade
+		Tooltip: "A drink of all drinks."
 	}
 }
 
