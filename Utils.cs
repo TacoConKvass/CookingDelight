@@ -52,9 +52,10 @@ public sealed class ListComparer<T> : IComparer<IReadOnlyList<T>> where T : ICom
 
 		var elementComparer = Comparer<T>.Default;
 		int count = Math.Min(left.Count, right.Count);
+		int result = 0;
 
 		for (int index = 0; index < count; index++) {
-			int result = elementComparer.Compare(left[index], right[index]);
+			result = elementComparer.Compare(left[index], right[index]);
 			if (result != 0) {
 				break;
 			}
