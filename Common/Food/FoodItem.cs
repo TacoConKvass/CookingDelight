@@ -38,6 +38,11 @@ public abstract class FoodItem : ModItem
 			RecipeRegister.GenericFoodRequirements.Add(Recipe.Sorted(), Type);
 		} else {
 			RecipeRegister.CookBook.Add(Recipe.Sorted().Join(), Type);
+			if (AdditionalRecipes != null) {
+				foreach (var additionalRecipe in AdditionalRecipes) {
+					RecipeRegister.CookBook.Add(additionalRecipe.Sorted().Join(), Type);
+				}
+			}
 		}
 	}
 
@@ -52,6 +57,11 @@ public abstract class FoodItem : ModItem
 	/// If <see cref="IsGenericFoodItem"/> returns <see langword="true"/> this list represents at least which items have to be present to make this item.
 	/// </summary>
 	public abstract List<int> Recipe { get; }
+
+	/// <summary>
+	/// Defines a list of additional recipes.
+	/// </summary>
+	public virtual List<List<int>> AdditionalRecipes => null;
 
 	public override void OnSpawn(IEntitySource source) {
 		if (source is not ItemSource_Cooking || !IsGenericFoodItem()) {

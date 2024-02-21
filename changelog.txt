@@ -3,8 +3,4 @@ Content changes
 - Added new items
     - Breakfast
     - Stormytuna
-API Changes
-- New way of declaring recipes
-- New method: IsGenericFoodItem
-    - Indicates that the item behaves like the Mix Dish
-- New extension methods
+    - Tall Borger
