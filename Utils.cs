@@ -17,7 +17,7 @@ public static class Utils
 	/// </summary>
 	/// <param name="list">The list you want to join</param>
 	/// <param name="separator">The set of characters you want to insert in between list elements</param>
-	/// <returns>A <see langword="string"/> joining all elements in the list.</returns>
+	/// <returns>A <see langword="string"/> joining all elements in the list with the provided separator.</returns>
 	public static string Join<T>(this List<T> list, string separator = " ") {
 		return string.Join(separator, list);
 	}
@@ -35,20 +35,31 @@ public static class Utils
 	}
 }
 
-// Taken from https://www.codeproject.com/Questions/5162240/Order-a-list-of-list-in-Csharp
 public sealed class ListComparer<T> : IComparer<IReadOnlyList<T>> where T : IComparable
 {
 	public int Compare(IReadOnlyList<T> left, IReadOnlyList<T> right) {
-		if (left is null) return right is null ? 0 : -1;
-		if (right is null) return 1;
-
-		var innerComparer = Comparer<T>.Default;
-		int count = Math.Min(left.Count, right.Count);
-		for (int index = 0; index < count; index++) {
-			int result = innerComparer.Compare(left[index], right[index]);
-			if (result != 0) return result;
+		if (left is null) {
+			return right is null ? 0 : -1;
 		}
 
-		return left.Count.CompareTo(right.Count);
+		if (right is null){
+			return 1;
+		}
+
+		if (left.Count != right.Count) {
+			return left.Count.CompareTo(right.Count);
+		}
+
+		var elementComparer = Comparer<T>.Default;
+		int count = Math.Min(left.Count, right.Count);
+
+		for (int index = 0; index < count; index++) {
+			int result = elementComparer.Compare(left[index], right[index]);
+			if (result != 0) {
+				break;
+			}
+		}
+
+		return result;
 	}
 }
