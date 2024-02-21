@@ -2,7 +2,7 @@ namespace CookingDelight.Content.Food;
 
 public class TallBorger : FoodItem
 {
-	public override List<int> Recipe => new List<int> { ItemID.Burger, ItemID.Burger };
+	public override List<int> Recipe => new List<int>() { ItemID.Burger, ItemID.Burger };
 
 	public override List<FoodCategory> Categories { get; set; } = new List<FoodCategory>() { FoodCategory.Meat, FoodCategory.Meat };
 	

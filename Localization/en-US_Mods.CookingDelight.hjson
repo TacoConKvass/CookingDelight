@@ -58,6 +58,15 @@ Items: {
 		DisplayName: Tall Borger
 		Tooltip: ""
 	}
+
+	Chocobo: {
+		DisplayName: Fried Fat Chocobo
+		Tooltip:
+			'''
+			Chonky birb.
+			[c/c72ee6:Thanks for all the help Michael!]
+			'''
+	}
 }
 
 Tiles.CrockPot.DisplayName: Crockpot
