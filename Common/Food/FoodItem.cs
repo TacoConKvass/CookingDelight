@@ -1,3 +1,4 @@
+using CookingDelight.Common.EntitySources;
 using CookingDelight.Common.Players;
 using CookingDelight.Common.Systems;
 using Humanizer;
@@ -137,9 +138,9 @@ public abstract class FoodItem : ModItem
 		// Clear already applied buffs 
 		foodPlayer.FoodLevels = new int[6];
 		foodPlayer.FoodTimers = new int[6];
-		Main.LocalPlayer.ClearBuff(BuffID.WellFed);
-		Main.LocalPlayer.ClearBuff(BuffID.WellFed2);
-		Main.LocalPlayer.ClearBuff(BuffID.WellFed3);
+		player.ClearBuff(BuffID.WellFed);	
+		player.ClearBuff(BuffID.WellFed2);
+		player.ClearBuff(BuffID.WellFed3);
 
 		foreach (var category in Categories) {
 			if (category == FoodCategory.Spice) {
