@@ -1,5 +1,4 @@
 v1.0.1.0
-Content changes
 - Added new items
     - Breakfast
     - Stormytuna
@@ -7,3 +6,6 @@ Content changes
     - McRib
     - Terranade
     - Pilk
+    - Chocobo
+- Fixed bugs
+    - UI not working in multiplayer
