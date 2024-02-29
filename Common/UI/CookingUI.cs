@@ -3,8 +3,6 @@ using CookingDelight.Common.Players;
 using CookingDelight.Common.Systems;
 using CookingDelight.Common.UI.Elements;
 using CookingDelight.Content.Food;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using System.Linq;
 using Terraria.DataStructures;
 using Terraria.GameContent.UI.Elements;
@@ -76,9 +74,9 @@ public class CookingUI : UIState
 	}
 
 	public override void Update(GameTime gameTime) {
-		if (Main.LocalPlayer.GetModPlayer<CDCookingPlayer>().CurrentCrockpotPosition != null) {
+		if (ModContent.GetInstance<CookingUISystem>().CurrentCrockpotPosition != null) {
 			base.Update(gameTime);
-			Vector2 activeCrockpotPosition = Vector2.Transform((Vector2)Main.LocalPlayer.GetModPlayer<CDCookingPlayer>().CurrentCrockpotPosition - Main.screenPosition, Main.GameViewMatrix.ZoomMatrix) / Main.UIScale;
+			Vector2 activeCrockpotPosition = Vector2.Transform((Vector2)ModContent.GetInstance<CookingUISystem>().CurrentCrockpotPosition - Main.screenPosition, Main.GameViewMatrix.ZoomMatrix) / Main.UIScale;
 			panel.Left.Set(activeCrockpotPosition.X - 84, 0);
 			panel.Top.Set(activeCrockpotPosition.Y - 224, 0);
 			Recalculate();
@@ -115,9 +113,21 @@ public class CookingUI : UIState
 			return;
 		}
 
-		string str_ingredient_types = string.Join(" ", int_types.Sorted());
+		string str_ingredient_types = int_types.Sorted().Join();
 
-		int resultType = RecipeRegister.CookBook.ContainsKey(str_ingredient_types) ? RecipeRegister.CookBook[str_ingredient_types] : ModContent.ItemType<MixFoodItem>();
+		int resultType = ModContent.ItemType<MixFoodItem>();
+
+		if (RecipeRegister.CookBook.ContainsKey(str_ingredient_types)) {
+			resultType = RecipeRegister.CookBook[str_ingredient_types];
+		} else {
+			foreach (var key in RecipeRegister.GenericFoodRequirements.Keys.Reverse()) {
+				if (key.All(element => int_types.AmountOf(element) >= key.AmountOf(element))) {
+					resultType = RecipeRegister.GenericFoodRequirements[key];
+					break;
+				}
+			}
+		}
+
 
 		Main.LocalPlayer.QuickSpawnItem(new ItemSource_Cooking(ingredient_types), resultType);
 		
@@ -130,19 +140,19 @@ public class CookingUI : UIState
 	}
 
 	public bool IsValidInput(Item item) {
-		bool vanillaFoodItemNotSpice = false;
-		bool allowedModFoodItem = item.ModItem is FoodItem && !(item.ModItem as FoodItem).Categories.Contains(FoodCategory.Spice) && (item.ModItem as FoodItem).Categories.Count <= 5;
+		bool vanillaFoodItem = false;
+		bool allowedModFoodItem = item.ModItem is FoodItem && (item.ModItem as FoodItem).Categories.Count <= 5;
 		foreach (FoodCategory foodCategory in Enum.GetValues(typeof(FoodCategory))) {
 			if (VanillaFoodCategorizer.VanillaFoodByCategory[foodCategory].Contains(item.type)) {
-				vanillaFoodItemNotSpice = true;
+				vanillaFoodItem = true;
 				break;
 			}
 		}
 
-		if (VanillaFoodCategorizer.VanillaFoodByCategory[FoodCategory.Spice].Contains(item.type)) {
-			vanillaFoodItemNotSpice = false;
+		if (VanillaFoodCategorizer.VanillaFoodByCategory[FoodCategory.Spice].Contains(item.type) && item.type != ItemID.SpicyPepper) {
+			vanillaFoodItem = false;
 		}
 
-		return item.IsAir || vanillaFoodItemNotSpice || allowedModFoodItem;
+		return item.IsAir || vanillaFoodItem || allowedModFoodItem;
 	}
 }

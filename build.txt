@@ -1,6 +1,6 @@
 displayName = Cooking Delight
 author = TacoConKvass
-version = 1.0.0.1
+version = 1.0.1.0
 includeSource = true
 homepage = https://github.com/TacoConKvass/CookingDelight
 buildIgnore = .git\*, .vs\*, bin\*, obj\*, README.md

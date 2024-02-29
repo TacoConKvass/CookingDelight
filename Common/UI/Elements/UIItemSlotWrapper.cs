@@ -1,4 +1,3 @@
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
 using Terraria.GameInput;
 using Terraria.UI;

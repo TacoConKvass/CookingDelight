@@ -1,3 +1,11 @@
-v1.0.0.1
-- Fixed typo in stormytuna's name
-- Added tooltip for vanilla food items -> "Can be cooked at the Crockpot"
+v1.0.1.0
+- Added new items
+    - Breakfast
+    - Stormytuna
+    - Tall Borger
+    - McRib
+    - Terranade
+    - Pilk
+    - Chocobo
+- Fixed bugs
+    - UI not working in multiplayer

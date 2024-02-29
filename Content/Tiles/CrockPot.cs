@@ -1,6 +1,4 @@
-using CookingDelight.Common.Players;
-using Humanizer;
-using Microsoft.Xna.Framework;
+using CookingDelight.Common.Systems;
 using Terraria.DataStructures;
 using Terraria.GameContent.ObjectInteractions;
 using Terraria.Localization;
@@ -33,11 +31,11 @@ public class Crockpot : ModTile
 	public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) => true;
 
 	public override bool RightClick(int i, int j) {
-		Main.LocalPlayer.GetModPlayer<CDCookingPlayer>().CurrentCrockpotPosition = Main.LocalPlayer.GetModPlayer<CDCookingPlayer>().CurrentCrockpotPosition == null ? new Point16(i, j).ToWorldCoordinates() : null;
+		ModContent.GetInstance<CookingUISystem>().CurrentCrockpotPosition = ModContent.GetInstance<CookingUISystem>().CurrentCrockpotPosition == null ? new Point16(i, j).ToWorldCoordinates() : null;
 		return true;
 	}
 
 	public override void KillMultiTile(int i, int j, int frameX, int frameY) {
-		Main.LocalPlayer.GetModPlayer<CDCookingPlayer>().CurrentCrockpotPosition = null;
+		ModContent.GetInstance<CookingUISystem>().CurrentCrockpotPosition = null;
 	}
 }

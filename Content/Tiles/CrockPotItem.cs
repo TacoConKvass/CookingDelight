@@ -1,5 +1,3 @@
-using Microsoft.Xna.Framework.Graphics;
-
 namespace CookingDelight.Content.Tiles;
 
 public class CrockpotItem : ModItem

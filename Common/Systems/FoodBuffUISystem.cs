@@ -1,22 +1,13 @@
 using CookingDelight.Common.Players;
-using CookingDelight.Common.UI;
 using Humanizer;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.Localization;
 using Terraria.UI;
 
 namespace CookingDelight.Common.Systems;
 
-public class UISystem : ModSystem
+public class FoodBuffUISystem : ModSystem
 {
 	const string FoodBuffTexturePath = "CookingDelight/Assets/UI";
-
-	public UserInterface userInterface;
-	public CookingUI cookingUI;
-
-	private GameTime lastUpdateUiGameTime;
-
 
 	public static Dictionary<int, string> foodBuffTextures = new Dictionary<int, string>() {
 		{ (int)FoodCategory.Meat, $"{FoodBuffTexturePath}/MeatBuff" },
@@ -39,40 +30,12 @@ public class UISystem : ModSystem
 				InterfaceScaleType.UI
 			));
 		}
-
-		int mouseTextIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Mouse Text"));
-		if (mouseTextIndex != -1) {
-			layers.Insert(mouseTextIndex, new LegacyGameInterfaceLayer(
-				"CookingDelight : Cooking UI",
-				delegate {
-					if (lastUpdateUiGameTime != null && userInterface?.CurrentState != null) {
-						userInterface.Draw(Main.spriteBatch, lastUpdateUiGameTime);
-					}
-					return true;
-				},
-				InterfaceScaleType.UI
-			));
-		}
-	}
-
-	public override void UpdateUI(GameTime gameTime) {
-		lastUpdateUiGameTime = gameTime;
-		if (userInterface?.CurrentState != null) {
-			userInterface.Update(gameTime);
-		}
 	}
 
 	public override void Load() {
 		if (Main.dedServ) {
 			return;
 		}
-		userInterface = new UserInterface();
-		cookingUI = new CookingUI();
-		cookingUI.Activate();
-	}
-
-	public override void Unload() {
-		cookingUI = null;
 	}
 
 	public void DrawFoodBuffUI(SpriteBatch spriteBatch) {
@@ -96,13 +59,5 @@ public class UISystem : ModSystem
 			Main.LocalPlayer.mouseInterface = true;
 			Main.instance.MouseText(mousetext);
 		}
-	}
-
-	public void ShowCookingUI() {
-		userInterface?.SetState(cookingUI);
-	}
-
-	public void HideCookingUI() {
-		userInterface?.SetState(null);
 	}
 }

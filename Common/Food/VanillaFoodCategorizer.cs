@@ -291,9 +291,9 @@ public class VanillaFoodCategorizer : GlobalItem
 				}
 			}
 
-			Main.LocalPlayer.ClearBuff(BuffID.WellFed);
-			Main.LocalPlayer.ClearBuff(BuffID.WellFed2);
-			Main.LocalPlayer.ClearBuff(BuffID.WellFed3);
+			player.ClearBuff(BuffID.WellFed);
+			player.ClearBuff(BuffID.WellFed2);
+			player.ClearBuff(BuffID.WellFed3);
 
 			foreach (var (category, value) in VanillaFoodByCategory) {
 				if (value.Contains(item.type) && category != FoodCategory.Other && category != FoodCategory.Spice) {
@@ -303,7 +303,7 @@ public class VanillaFoodCategorizer : GlobalItem
 			}
 
 			if (VanillaFoodByCategory[FoodCategory.Other].Contains(item.type)) {
-				Main.LocalPlayer.AddBuff(BuffID.WellFed, VanillaFoodBuffTime);
+				player.AddBuff(BuffID.WellFed, VanillaFoodBuffTime);
 			}
 		}
 	}

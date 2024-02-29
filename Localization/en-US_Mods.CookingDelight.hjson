@@ -28,7 +28,7 @@ MinutesDuration: "{0} minutes duration"
 Items: {
 	MixFoodItem: {
 		DisplayName: Mix Dish
-		Tooltip: ""
+		Tooltip: I don't know what you put there, but it's edible
 	}
 
 	CrockpotItem: {
@@ -38,6 +38,49 @@ Items: {
 			Used for cooking.
 			Right click the tile to open UI.
 			'''
+	}
+
+	Breakfast: {
+		DisplayName: Breakfast
+		Tooltip: A great way to start your day.
+	}
+
+	Stormytuna: {
+		DisplayName: Stormytuna
+		Tooltip:
+			'''
+			This fish sure is fishy...
+			[c/67b349:Thanks for all the help Tuna-san!]
+			'''
+	}
+
+	TallBorger: {
+		DisplayName: Tall Borger
+		Tooltip: ""
+	}
+
+	Chocobo: {
+		DisplayName: Fried Fat Chocobo
+		Tooltip:
+			'''
+			Chonky birb.
+			[c/c72ee6:Thanks for all the help Michael!]
+			'''
+	}
+
+	RibBorger: {
+		DisplayName: McRib
+		Tooltip: ""
+	}
+
+	Terranade: {
+		DisplayName: Terranade
+		Tooltip: A drink of all drinks.
+	}
+
+	Pilk: {
+		DisplayName: Pilk
+		Tooltip: ""
 	}
 }
 
