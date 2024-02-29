@@ -1,4 +1,3 @@
-
 namespace CookingDelight.Content.Food;
 
 public class Pilk : FoodItem
@@ -14,7 +13,7 @@ public class Pilk : FoodItem
 		Item.maxStack = 9999;
 		Item.consumable = true;
 
-		Item.useStyle = ItemUseStyleID.EatFood;
+		Item.useStyle = ItemUseStyleID.DrinkLiquid;
 		Item.useAnimation = 30;
 		Item.useTime = 30;
 	}
