@@ -4,6 +4,8 @@ In vanilla Terraria food items give 3 different buffs, which are the same but wi
 
 [url=https://github.com/TacoConKvass/CookingDelight]The projects Github repo.[/url]
 
+[b]Spriting help always appreciated![/b]
+
 This is a mod made purely for fun and to get some experience. Inspired by Mindfull Eating mod for Minecraft.
 Aided by:
 - Conceptual work: Lusttrill, Possibly Blu3morous
